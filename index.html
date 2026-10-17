@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Holman & Mónica</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración de Tailwind para Colores y Fuentes personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0d1b2a',
+                        navyDark: '#061c33',
+                        gold: '#b5965b',
+                        goldLight: '#cba153',
+                        cream: '#f4f1ea'
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        vibes: ['"Great Vibes"', 'cursive'],
+                        montserrat: ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
+
+  
+    </script>
+
+    <style>
+        body {
+            background-color: #061c33; 
+        }
+        /* Ocultar barra de desplazamiento para las vistas deslizantes */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased text-white font-montserrat">
+
+    <!-- ==========================================
+         SECCIÓN 1: HERO (FONDO, CUENTA REGRESIVA)
+         ========================================== -->
+    <section class="relative min-h-screen w-full flex flex-col items-center overflow-hidden" 
+             style="background:linear-gradient(to bottom, #010943a6 0%, #01094347 5%, transparent 100%), url('img/Banner-holman-ymonica.jpg') center/cover no-repeat">
+        
+        <!-- HEADER (Música y Menú) -->
+        <header class="w-full flex justify-between items-center p-6 md:px-12 relative z-10">
+             
+            <!--music-->
+<!-- Tu botón modificado con IDs -->
+<button id="music-btn" class="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-colors duration-300">
+    <i id="music-icon" class="fas fa-music"></i>
+</button>
+
+            <audio id="bg-music" loop>
+    <!-- Reemplaza "ruta/a/tu-cancion.mp3" con la ruta real de tu archivo -->
+    <source src="music/Musics_01.mp3" type="audio/mpeg">
+    Tu navegador no soporta la etiqueta de audio.
+</audio>
+            <!--music-->
+            <button class="flex items-center gap-2 text-gold hover:text-white transition-colors duration-300 uppercase tracking-widest text-sm">
+                <span>Menú</span>
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </header>
+
+        <!-- SECCIÓN CENTRAL HERO (Nombres y Fecha) -->
+        <main class="flex-1 flex flex-col items-center justify-center text-center px-4 relative z-10 w-full pt-10 pb-16">
+            <!-- Sello Circular -->
+
+        <div class="mb-4 drop-shadow-lg">
+              <img class="w-48" src="img/Logo.png"> 
+        </div>
+             <!--<div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#e0be75] to-[#b38531] p-1 mb-6 shadow-[0_0_15px_rgba(181,150,91,0.4)]">
+               <div class="w-full h-full rounded-full border-[1.5px] border-navyDark flex items-center justify-center bg-transparent relative">
+                    <span class="font-playfair text-2xl md:text-3xl text-navyDark">H</span>
+                    <span class="font-playfair text-sm text-navyDark mx-1 mt-3">&</span>
+                    <span class="font-playfair text-2xl md:text-3xl text-navyDark mt-4">M</span>
+                </div>X
+            </div>-->
+
+            <h1 style="text-shadow: 1px 2px 22px #000e38,1px 2px 22px #000e38,1px 2px 22px #000e38;" class="font-playfair text-shadow-lg text-4xl md:text-5xl lg:text-6xl tracking-widest text-white mb-4 drop-shadow-lg">
+                HOLMAN & MÓNICA
+            </h1>
+            <p style="text-shadow: 1px 2px 22px #000e38,1px 2px 22px #000e38,1px 2px 22px #000e38;" class="font-montserrat text-shadow-lg text-xl md:text-2xl tracking-[0.3em] text-gold mb-2 font-normal">
+                16 . 01 . 2027
+            </p>
+            <p style="text-shadow: 1px 2px 22px #000e38,1px 2px 22px #000e38,1px 2px 22px #000e38;" class="font-montserrat text-shadow-lg text-sm md:text-base tracking-widest text-white mb-6 uppercase">
+                Casa Duque
+            </p>
+
+            <!-- Decorador -->
+            <div class="flex items-center gap-2 mb-2 text-gold">
+                <span class="block w-12 h-[1px] bg-gold"></span>
+                <i class="fas fa-leaf text-sm"></i>
+                <span class="block w-12 h-[1px] bg-gold"></span>
+            </div>
+            <p style="text-shadow: 1px 2px 22px #000e38,1px 2px 22px #000e38,1px 2px 22px #000e38;" class="font-vibes text-3xl md:text-4xl text-gold mt-2 drop-shadow text-shadow-lg">
+                El hogar que construimos
+            </p>
+        </main>
+
+        <!-- CONTENEDOR FLEXBOX: Cuenta Regresiva y Calendario -->
+        <div class="w-full max-w-5xl mx-auto px-4 pb-20 relative z-10 flex flex-col lg:flex-row gap-8 items-center lg:items-stretch justify-center">
+            <!-- Cuenta Regresiva -->
+            <div class="bg-navyDark/90 backdrop-blur-sm border border-gold/40 rounded-2xl p-8 shadow-2xl w-full lg:w-1/2 flex flex-col justify-center items-center">
+                <h3 class="font-montserrat text-xs md:text-sm tracking-[0.2em] text-white/80 uppercase mb-8 text-center">
+                    Falta poco para nuestro gran día
+                </h3>
+                <div class="flex items-start justify-center gap-4 md:gap-8 w-full">
+                    <div class="flex flex-col items-center">
+                        <span id="days" class="font-playfair text-4xl md:text-5xl lg:text-6xl text-white mb-2">000</span>
+                        <span class="font-montserrat text-[10px] md:text-xs tracking-widest uppercase text-gold">Días</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="hours" class="font-playfair text-4xl md:text-5xl lg:text-6xl text-gold mb-2">00</span>
+                        <span class="font-montserrat text-[10px] md:text-xs tracking-widest uppercase text-white/70">Horas</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="minutes" class="font-playfair text-4xl md:text-5xl lg:text-6xl text-white mb-2">00</span>
+                        <span class="font-montserrat text-[10px] md:text-xs tracking-widest uppercase text-white/70">Min</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span id="seconds" class="font-playfair text-4xl md:text-5xl lg:text-6xl text-white mb-2">00</span>
+                        <span class="font-montserrat text-[10px] md:text-xs tracking-widest uppercase text-white/70">Seg</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendario -->
+            <div class="bg-cream rounded-2xl p-6 md:p-8 shadow-2xl w-full max-w-sm lg:w-1/2 flex flex-col items-center relative overflow-hidden">
+                <h3 class="font-montserrat text-sm md:text-base tracking-[0.2em] text-navyDark uppercase mb-6 text-center">
+                    Enero 2027
+                </h3>
+                <div class="w-full text-center">
+                    <div class="grid grid-cols-7 gap-1 font-montserrat text-xs text-navyDark/70 mb-4 font-semibold tracking-wider">
+                        <div>D</div><div>L</div><div>M</div><div>X</div><div>J</div><div>V</div><div>S</div>
+                    </div>
+                    <div class="grid grid-cols-7 gap-y-3 font-montserrat text-sm text-navyDark">
+                        <div></div><div></div><div></div><div></div><div></div>
+                        <div>1</div><div>2</div>
+                        <div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+                        <div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+                        <div class="relative flex items-center justify-center">
+                            <span class="relative z-10 font-bold">16</span>
+                            <svg class="absolute w-8 h-8 text-gold opacity-60 z-0 drop-shadow-md" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"></path>
+                            </svg>
+                        </div>
+                        <div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
+                        <div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div><div>30</div>
+                        <div>31</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 2: SOBRE NOSOTROS
+         ========================================== -->
+    <section class="bg-cream py-24 px-6 lg:px-20 w-full text-center md:text-left flex flex-col md:flex-row items-center justify-center gap-12 text-navyDark">
+        <div class="max-w-lg flex flex-col items-center text-center">
+            <h2 class="font-montserrat tracking-[0.2em] uppercase text-xl mb-4 text-navyDark">Sobre Nosotros</h2>
+            <div class="flex items-center gap-2 mb-8 text-gold">
+                <span class="block w-12 h-[1px] bg-gold"></span>
+                <i class="fas fa-leaf"></i>
+                <span class="block w-12 h-[1px] bg-gold"></span>
+            </div>
+            <p class="font-playfair text-2xl md:text-3xl italic mb-6 leading-relaxed">
+                Dos almas, una historia<br>y el hogar que construimos juntos.
+            </p>
+            <p class="font-montserrat text-sm md:text-base mb-8 text-navyDark/80">
+                Estamos felices de compartir<br>este día tan especial contigo.
+            </p>
+            <i class="fas fa-heart text-gold text-xl"></i>
+        </div>
+        <div class="w-full max-w-md">
+            <div class="aspect-[4/3] bg-gray-200 rounded-lg shadow-xl overflow-hidden relative flex items-center justify-center border-[6px] border-white">
+                <img src="img/Felicidad-compartida.jpg" alt="Pareja" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 3: NUESTROS COMPAÑEROS
+         ========================================== -->
+    <section class="bg-navyDark py-24 px-6 lg:px-20 text-center relative w-full border-y border-gold/30">
+        <h2 class="font-montserrat tracking-[0.2em] uppercase text-xl mb-4 text-white">Nuestros Compañeros</h2>
+        <div class="flex items-center justify-center gap-2 mb-16 text-gold">
+            <span class="block w-12 h-[1px] bg-gold"></span>
+            <i class="fas fa-paw"></i>
+            <span class="block w-12 h-[1px] bg-gold"></span>
+        </div>
+
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 md:gap-8">
+            <!-- Bruce -->
+            <div class="flex flex-col items-center flex-1">
+                <div class="w-48 h-48 rounded-full bg-gray-300 border-2 border-gold mb-6 overflow-hidden p-1 shadow-[0_0_25px_rgba(181,150,91,0.2)]">
+                     <img src="img/Bruce-willis-dog.jpg" alt="Bruce" class="w-full h-full rounded-full object-cover">
+                </div>
+                <h3 class="font-playfair text-2xl tracking-widest text-white mb-2">BRUCE</h3>
+                <p class="font-montserrat text-sm text-gold tracking-wider">Pisco Sour</p>
+            </div>
+            <!-- Texto Central -->
+            <div class="max-w-[250px] flex flex-col items-center px-4 flex-1">
+                <i class="far fa-heart text-gold text-4xl mb-6"></i>
+                <p class="font-montserrat text-sm md:text-base text-white/80 leading-relaxed">
+                    Ellos también<br>serán parte de<br>nuestro gran día.
+                </p>
+            </div>
+            <!-- Maki -->
+            <div class="flex flex-col items-center flex-1">
+                <div class="w-48 h-48 rounded-full bg-gray-300 border-2 border-gold mb-6 overflow-hidden p-1 shadow-[0_0_25px_rgba(181,150,91,0.2)]">
+                     <img src="img/Maki_dog.jpg" alt="Maki" class="w-full h-full rounded-full object-cover">
+                </div>
+                <h3 class="font-playfair text-2xl tracking-widest text-white mb-2">MAKI</h3>
+                <p class="font-montserrat text-sm text-gold tracking-wider">Gin & Tonic</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 4: DETALLES DEL DÍA
+         ========================================== -->
+    <section class="bg-navyDark pb-12 pt-12 px-4 w-full flex flex-col items-center justify-center relative">
+        <div class="bg-cream rounded-[2rem] p-8 md:p-12 max-w-5xl w-full border border-gold/40 shadow-2xl relative overflow-hidden">
+            <h2 class="text-center font-montserrat tracking-[0.2em] uppercase text-xl mb-4 text-navyDark">Detalles del Día</h2>
+            <div class="flex items-center justify-center gap-2 mb-10 text-gold">
+                <span class="block w-12 h-[1px] bg-gold"></span>
+                <i class="fas fa-leaf"></i>
+                <span class="block w-12 h-[1px] bg-gold"></span>
+            </div>
+            
+            <div class="relative min-h-[460px] md:min-h-[220px] w-full overflow-hidden flex items-center">
+                <!-- VISTA 1 -->
+                <div id="vista-1" class="absolute inset-0 w-full transition-all duration-500 ease-in-out transform translate-x-0 opacity-100 flex flex-col justify-center">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-4 text-center text-navyDark">
+                        <div class="flex flex-col items-center">
+                            <i class="far fa-calendar-alt text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">FECHA</h4>
+                            <p class="font-playfair text-sm lg:text-base">16 de enero<br>de 2027</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="far fa-clock text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">HORA</h4>
+                            <p class="font-playfair text-sm lg:text-base">Llegada: 3:00 p.m.<br>Ceremonia: 4:00 p.m.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="far fa-building text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">LUGAR</h4>
+                            <p class="font-playfair text-sm lg:text-base">Casa Duque<br>Subachoque,<br>Cundinamarca</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-tshirt text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">DRESS CODE</h4>
+                            <p class="font-playfair text-sm lg:text-base mb-3">Formal de Jardín</p>
+                            <div class="flex gap-2 justify-center">
+                                <span class="w-4 h-4 rounded-full bg-navyDark border border-gray-300 shadow-inner"></span>
+                                <span class="w-4 h-4 rounded-full bg-[#3d5a80] border border-gray-300 shadow-inner"></span>
+                                <span class="w-4 h-4 rounded-full bg-[#829bb3] border border-gray-300 shadow-inner"></span>
+                                <span class="w-4 h-4 rounded-full bg-gold border border-gray-300 shadow-inner"></span>
+                                <span class="w-4 h-4 rounded-full bg-cream border border-gray-300 shadow-inner"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VISTA 2 -->
+                <div id="vista-2" class="absolute inset-0 w-full transition-all duration-500 ease-in-out transform translate-x-full opacity-0 pointer-events-none flex flex-col justify-center">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-4 text-center text-navyDark">
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-car text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">PARQUEADERO</h4>
+                            <p class="font-playfair text-sm lg:text-base">Servicio de<br>valet parking</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-glass-cheers text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">SOLO ADULTOS</h4>
+                            <p class="font-playfair text-sm lg:text-base">Amamos a sus niños,<br>pero será una<br>celebración de adultos</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-clipboard-list text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">PLANIFICACIÓN</h4>
+                            <p class="font-playfair text-sm lg:text-base">A cargo de<br>nuestra Planner</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-utensils text-4xl mb-5 text-gold"></i>
+                            <h4 class="font-montserrat font-semibold tracking-widest text-xs mb-3">MENÚ</h4>
+                            <p class="font-playfair text-sm lg:text-base">Opciones disponibles.<br>Informar alergias.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-6 relative z-10">
+                <button id="btn-toggle-detalles" class="bg-navyDark text-white font-montserrat text-[10px] md:text-xs tracking-[0.2em] px-8 py-4 rounded uppercase hover:bg-gold transition-colors duration-300 shadow-lg border border-navyDark hover:border-gold">
+                    VER MÁS DETALLES
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 5: TARJETAS INTERACTIVAS (NUEVO)
+         ========================================== -->
+    <section class="bg-navyDark py-12 px-4 w-full">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Tarjeta 1: Música -->
+            <div class="relative rounded-2xl overflow-hidden border-[1.5px] border-gold/60 aspect-square flex flex-col items-center justify-center p-6 text-center group shadow-xl">
+                <!-- Fondo -->
+                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://placehold.co/400x400/061c33/b5965b?text=Luces+Noche'); mix-blend-mode: overlay;"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#061c33]/50 to-[#061c33]/90"></div>
+                <!-- Contenido -->
+                <div class="relative z-10 flex flex-col items-center justify-between h-full w-full py-4">
+                    <div>
+                        <i class="fas fa-music text-3xl text-white mb-4 drop-shadow"></i>
+                        <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">MÚSICA</h3>
+                        <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">¿Cuál es la canción que no debe faltar en la playlist?</p>
+                    </div>
+                    <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
+                        SUGERIR CANCIÓN
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Dress Code -->
+            <div class="relative rounded-2xl overflow-hidden border-[1.5px] border-gold/60 aspect-square flex flex-col items-center justify-center p-6 text-center group shadow-xl">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://placehold.co/400x400/061c33/b5965b?text=Jardin'); mix-blend-mode: overlay;"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#061c33]/50 to-[#061c33]/90"></div>
+                <div class="relative z-10 flex flex-col items-center justify-between h-full w-full py-4">
+                    <div>
+                        <i class="fas fa-user-tie text-3xl text-white mb-4 drop-shadow"></i>
+                        <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">DRESS CODE</h3>
+                        <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">Una orientación para tu vestuario</p>
+                    </div>
+                    <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
+                        VER MÁS
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Tips y Notas -->
+            <div class="relative rounded-2xl overflow-hidden border-[1.5px] border-gold/60 aspect-square flex flex-col items-center justify-center p-6 text-center group shadow-xl">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://placehold.co/400x400/061c33/b5965b?text=Hojas'); mix-blend-mode: overlay;"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#061c33]/50 to-[#061c33]/90"></div>
+                <div class="relative z-10 flex flex-col items-center justify-between h-full w-full py-4">
+                    <div>
+                        <i class="fas fa-clipboard-list text-3xl text-white mb-4 drop-shadow"></i>
+                        <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">TIPS Y NOTAS</h3>
+                        <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">Información adicional para tener en cuenta</p>
+                    </div>
+                    <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
+                        + INFO
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tarjeta 4: Comparte -->
+            <div class="relative rounded-2xl overflow-hidden border-[1.5px] border-gold/60 aspect-square flex flex-col items-center justify-center p-6 text-center group shadow-xl">
+                <div class="absolute inset-0 bg-cover bg-center opacity-30 group-hover:scale-110 transition-transform duration-700" style="background-image: url('https://placehold.co/400x400/061c33/b5965b?text=Manta'); mix-blend-mode: overlay;"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#061c33]/50 to-[#061c33]/90"></div>
+                <div class="relative z-10 flex flex-col items-center justify-between h-full w-full py-4">
+                    <div>
+                        <i class="fas fa-camera text-3xl text-white mb-4 drop-shadow"></i>
+                        <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">COMPARTE</h3>
+                        <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">Comparte tus fotos y videos del gran día</p>
+                    </div>
+                    <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
+                        VER ÁLBUM
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN 6: FOOTER / CALL TO ACTION (NUEVO)
+         ========================================== -->
+    <section class="bg-navyDark relative overflow-hidden py-20 px-6 mt-4">
+        <!-- Decoraciones Florales (Simuladas en CSS para los bordes) -->
+        <div class="absolute left-0 bottom-0 opacity-40 pointer-events-none transform -translate-x-1/2 translate-y-1/4">
+            <i class="fas fa-leaf text-gold text-[15rem]"></i>
+        </div>
+        <div class="absolute right-0 top-1/2 opacity-40 pointer-events-none transform translate-x-1/3 -translate-y-1/2">
+            <i class="fas fa-leaf text-gold text-[15rem] rotate-180"></i>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 items-center relative z-10">
+            
+            <!-- Columna Izquierda: CTA -->
+            <div class="text-center lg:text-left flex flex-col items-center lg:items-start">
+                <h2 class="font-playfair text-xl md:text-2xl uppercase text-white tracking-widest mb-4">
+                    Tu presencia es<br>nuestro mejor regalo
+                </h2>
+                <p class="font-montserrat text-sm text-gray-300 mb-8 max-w-xs leading-relaxed">
+                    Confirma tu asistencia y sé parte de este día inolvidable.
+                </p>
+                <a href="https://forms.gle/dBD43dH2aZZY2eZv8"><button class="bg-gold text-navyDark font-montserrat font-bold text-xs px-8 py-3.5 rounded-md uppercase tracking-widest hover:bg-cream transition-colors shadow-lg border border-transparent hover:border-gold">
+                    CONFIRMAR ASISTENCIA <i class="fas fa-heart ml-1"></i>
+                </button></a>
+            </div>
+
+            <!-- Columna Central: Foto y Redes -->
+            <div class="flex flex-col items-center">
+                <div class="aspect-[16/9] w-full max-w-[320px] rounded-xl overflow-hidden border-[3px] border-navyDark shadow-[0_0_20px_rgba(181,150,91,0.2)] mb-6">
+                    <img src="img/matrimonio.jpg" alt="Pareja de noche" class="w-full h-full object-cover">
+                </div>
+                <div class="flex justify-center gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navyDark transition-colors duration-300">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navyDark transition-colors duration-300">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navyDark transition-colors duration-300">
+                        <i class="fab fa-spotify text-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Texto Final -->
+            <div class="text-center lg:text-right flex flex-col items-center lg:items-end justify-center">
+                <p class="font-playfair italic text-lg md:text-xl text-gray-300 leading-relaxed max-w-sm mb-6">
+                    "Hoy comienza nuestra historia como esposos, y qué mejor lugar para celebrarlo, que el hogar que construimos juntos."
+                </p>
+                <div class="flex flex-col items-center lg:items-end text-gold">
+                    <i class="fas fa-heart mb-2 text-sm"></i>
+                    <span class="font-playfair uppercase tracking-widest text-white text-lg">
+                        HOLMAN & MÓNICA
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SCRIPTS
+         ========================================== -->
+    <script>
+         //Music
+
+   // Seleccionamos los elementos del HTML
+    const musicBtn = document.getElementById('music-btn');
+    const bgMusic = document.getElementById('bg-music');
+    const musicIcon = document.getElementById('music-icon');
+
+    // Agregamos la acción al hacer clic en el botón
+    musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            // Cambiamos el ícono de FontAwesome a "pausa"
+            musicIcon.classList.remove('fa-music');
+            musicIcon.classList.add('fa-pause');
+        } else {
+            bgMusic.pause();
+            // Volvemos al ícono original
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-music');
+        }
+    });
+   //music
+        // Cuenta regresiva
+        const weddingDate = new Date("Jan 16, 2027 00:00:00").getTime();
+        const updateCountdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(updateCountdown);
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }, 1000);
+
+        // Lógica de Vistas (Detalles del día)
+        const btnToggle = document.getElementById('btn-toggle-detalles');
+        const vista1 = document.getElementById('vista-1');
+        const vista2 = document.getElementById('vista-2');
+        let mostrandoVista1 = true;
+
+        btnToggle.addEventListener('click', function() {
+            if (mostrandoVista1) {
+                vista1.classList.remove('translate-x-0', 'opacity-100');
+                vista1.classList.add('-translate-x-full', 'opacity-0', 'pointer-events-none');
+                
+                vista2.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+                vista2.classList.add('translate-x-0', 'opacity-100', 'pointer-events-auto');
+                
+                btnToggle.innerText = 'VOLVER';
+            } else {
+                vista2.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
+                vista2.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+                
+                vista1.classList.remove('-translate-x-full', 'opacity-0', 'pointer-events-none');
+                vista1.classList.add('translate-x-0', 'opacity-100');
+                
+                btnToggle.innerText = 'VER MÁS DETALLES';
+            }
+            mostrandoVista1 = !mostrandoVista1;
+        });
+    </script>
+</body>
+</html>
