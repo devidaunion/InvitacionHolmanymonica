@@ -17,29 +17,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Configuración de Tailwind para Colores y Fuentes personalizadas -->
+<!-- Configuración de Tailwind para Colores y Fuentes personalizadas -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: '#0d1b2a',
                         navyDark: '#061c33',
                         gold: '#b5965b',
-                        goldLight: '#cba153',
-                        cream: '#f4f1ea'
+                        cream: '#f9f6f0'
                     },
                     fontFamily: {
-                        playfair: ['"Playfair Display"', 'serif'],
-                        vibes: ['"Great Vibes"', 'cursive'],
-                        montserrat: ['"Montserrat"', 'sans-serif']
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        vibes: ['Great Vibes', 'cursive']
                     }
                 }
             }
         }
-
-  
     </script>
-
     <style>
         body {
             background-color: #061c33; 
@@ -52,6 +48,12 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        #music-btn{
+            display: block;
+            position: fixed;
+            bottom: 0px;
+            margin: 22px;
+            right: 22px;}
     </style>
 </head>
 <body class="antialiased text-white font-montserrat">
@@ -65,24 +67,41 @@
         <!-- HEADER (Música y Menú) -->
         <header class="w-full flex justify-between items-center p-6 md:px-12 relative z-10">
              
-            <!--music-->
-<!-- Tu botón modificado con IDs -->
-<button id="music-btn" class="w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-colors duration-300">
-    <i id="music-icon" class="fas fa-music"></i>
-</button>
+   <!--music-->
+    <!-- Tu botón modificado con IDs -->
+    <button id="music-btn" class="fixed top-4 right-4 z-[9999] w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-colors duration-300">
+        <i id="music-icon" class="fas fa-music"></i>
+    </button>
+        <audio id="bg-music" loop>
+        <!-- Reemplaza "ruta/a/tu-cancion.mp3" con la ruta real de tu archivo -->
+        <source src="music/Musics_01.mp3" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta de audio.
+        </audio>
+    <!--music-->
+    </header>
+  <!--menu-->
+        <!-- Contenedor relativo del menú -->
+<div class="relative inline-block  fixed inset-0 items-center  justify-center ">
+    
+    <!-- Botón del menú -->
+    <button id="menu-btn" aria-label="Abrir Menú"  class="items-center gap-3 px-5 py-2.5 rounded-full border border-[#D4AF37]/40 bg-black/60 backdrop-blur-md text-[#D4AF37] hover:bg-[#D4AF37] hosver:text-black transition-all duration-300 uppercase tracking-widest text-xs font-light shadow-lg ">
+        <span class="font-medium">Menú</span>
+        <i id="menu-icon" class="fas fa-bars text-sm transition-transform duration-300"></i>
+    </button>
 
-            <audio id="bg-music" loop>
-    <!-- Reemplaza "ruta/a/tu-cancion.mp3" con la ruta real de tu archivo -->
-    <source src="music/Musics_01.mp3" type="audio/mpeg">
-    Tu navegador no soporta la etiqueta de audio.
-</audio>
-            <!--music-->
-            <button class="flex items-center gap-2 text-gold hover:text-white transition-colors duration-300 uppercase tracking-widest text-sm">
-                <span>Menú</span>
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </header>
+    <!-- Menú Desplegable (Alineado a la izquierda y adaptativo a la pantalla) -->
+    <div id="nav-menu"  style="left: -78px;" class="absolute z-50 text-center  mt-3 w-64 max-w-[calc(100vw-2rem)] bg-neutral-950/95 border border-[#D4AF37]/30 backdrop-blur-xl rounded-2xl shadow-2xl p-6 transition-all duration-300 ease-in-out opacity-0 scale-95 pointer-events-none">
+        <nav class="flex flex-col gap-3">
+            <a href="index.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Inicio</a>
+            <a href="sugerir_cancion.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Sugerir Camción</a>
+            <a href="dress_code.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Dress code</a>
+            <a href="tarjeta_detalles.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Tips y notas</a>
+            <a href="wedding_album.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2">Comartir fotos o videos</a>
+        </nav>
+    </div>
 
+</div>
+            <!--menu-->
         <!-- SECCIÓN CENTRAL HERO (Nombres y Fecha) -->
         <main class="flex-1 flex flex-col items-center justify-center text-center px-4 relative z-10 w-full pt-10 pb-16">
             <!-- Sello Circular -->
@@ -95,7 +114,7 @@
                     <span class="font-playfair text-2xl md:text-3xl text-navyDark">H</span>
                     <span class="font-playfair text-sm text-navyDark mx-1 mt-3">&</span>
                     <span class="font-playfair text-2xl md:text-3xl text-navyDark mt-4">M</span>
-                </div>X
+                </div>
             </div>-->
 
             <h1 style="text-shadow: 1px 2px 22px #000e38,1px 2px 22px #000e38,1px 2px 22px #000e38;" class="font-playfair text-shadow-lg text-4xl md:text-5xl lg:text-6xl tracking-widest text-white mb-4 drop-shadow-lg">
@@ -338,9 +357,10 @@
                         <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">MÚSICA</h3>
                         <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">¿Cuál es la canción que no debe faltar en la playlist?</p>
                     </div>
-                    <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
+                    <a href="sugerir_cancion.html">
+                    <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md" >
                         SUGERIR CANCIÓN
-                    </button>
+                    </button> </a>
                 </div>
             </div>
 
@@ -354,9 +374,10 @@
                         <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">DRESS CODE</h3>
                         <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">Una orientación para tu vestuario</p>
                     </div>
+                      <a href="dress_code.html">
                     <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
                         VER MÁS
-                    </button>
+                    </button></a>
                 </div>
             </div>
 
@@ -369,10 +390,10 @@
                         <i class="fas fa-clipboard-list text-3xl text-white mb-4 drop-shadow"></i>
                         <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">TIPS Y NOTAS</h3>
                         <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">Información adicional para tener en cuenta</p>
-                    </div>
+                    </div><a href="tarjeta_detalles.html">
                     <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
                         + INFO
-                    </button>
+                    </button></a>
                 </div>
             </div>
 
@@ -385,10 +406,10 @@
                         <i class="fas fa-camera text-3xl text-white mb-4 drop-shadow"></i>
                         <h3 class="font-playfair uppercase text-lg text-white tracking-widest mb-2">COMPARTE</h3>
                         <p class="font-montserrat text-xs text-gray-300 leading-relaxed max-w-[200px] mx-auto">Comparte tus fotos y videos del gran día</p>
-                    </div>
+                    </div><a href="wedding_album.html">
                     <button class="mt-4 bg-cream text-navyDark px-6 py-2.5 rounded-md font-montserrat text-[10px] sm:text-xs tracking-widest uppercase hover:bg-gold hover:text-white transition-colors duration-300 w-[90%] font-semibold shadow-md">
                         VER ÁLBUM
-                    </button>
+                    </button></a>
                 </div>
             </div>
 
@@ -460,6 +481,42 @@
          SCRIPTS
          ========================================== -->
     <script>
+        //menu
+ const menuBtn = document.getElementById('menu-btn');
+const navMenu = document.getElementById('nav-menu');
+const menuIcon = document.getElementById('menu-icon');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function openMenu() {
+    navMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+    navMenu.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-xmark');
+}
+
+function closeMenu() {
+    navMenu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    navMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+}
+
+menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.contains('opacity-100');
+    isOpen ? closeMenu() : openMenu();
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        closeMenu();
+    }
+});
+        //menu
          //Music
 
    // Seleccionamos los elementos del HTML

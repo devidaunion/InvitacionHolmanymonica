@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugerir canción - Holman & Mónica</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for standard icons if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0A1634',
+                        navyLight: '#14284F',
+                        gold: '#C9A24B',
+                        goldLight: '#E3C77E',
+                        goldDark: '#8F6D25',
+                        cream: '#F4ECDC',
+                        creamDark: '#E8DEC8',
+                        formBg: '#FAF5E9',
+                        textNavy: '#1A2A4F',
+                        textMuted: '#5A5845'
+                    },
+                    fontFamily: {
+                        cinzel: ['"Cinzel"', 'serif'],
+                        cormorant: ['"Cormorant Garamond"', 'serif'],
+                        pinyon: ['"Pinyon Script"', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A1634;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Input Styling */
+        input::placeholder, textarea::placeholder {
+            color: #76715C;
+            opacity: 1;
+        }
+        input:focus, textarea:focus {
+            border-color: #C9A24B !important;
+            box-shadow: 0 0 0 3px rgba(201,162,75,.28);
+            outline: none;
+        }
+        button:focus-visible {
+            outline: 2px solid #E3C77E;
+            outline-offset: 3px;
+        }
+        
+        /* Form Card Gradient */
+        .card-gradient {
+            background-image: linear-gradient(180deg, #F6EFE0 0%, #EEE4CF 100%);
+        }
+        
+        /* Background Glow */
+        .bg-glow {
+            background: radial-gradient(circle, rgba(201,162,75,.15) 0%, rgba(201,162,75,0) 60%);
+        }
+    </style>
+</head>
+<body class="font-cormorant text-cream antialiased">
+
+    <!-- MAIN WRAPPER -->
+    <div class="relative w-full min-h-screen overflow-hidden bg-navy" style="background-image: radial-gradient(ellipse 120% 40% at 50% 0%, #1D3868 0%, #0F2247 45%, #0A1634 100%);">
+        
+        <!-- TOP BAR -->
+     
+ <!--music-->
+            <!-- Tu botón modificado con IDs -->
+            <button id="music-btn" class="fixed top-4 right-4 z-[9999] w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-colors duration-300">
+                <i id="music-icon" class="fas fa-music"></i>
+            </button>
+
+                        <audio id="bg-music" loop>
+                <!-- Reemplaza "ruta/a/tu-cancion.mp3" con la ruta real de tu archivo -->
+                <source src="music/Musics_01.mp3" type="audio/mpeg">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+            <!--music-->
+        <div class="relative max-w-3xl mx-auto pb-20">
+            
+            <!-- ================= HERO SECTION ================= -->
+            <div class="relative pt-24 px-6 pb-8 text-center">
+                  <!--menu-->
+        <!-- Contenedor relativo del menú -->
+    <div class="relative inline-block  fixed inset-0 items-center  justify-center ">
+    
+    <!-- Botón del menú -->
+    <button id="menu-btn" aria-label="Abrir Menú"  class="items-center gap-3 px-5 py-2.5 rounded-full border border-[#D4AF37]/40 bg-black/60 backdrop-blur-md text-[#D4AF37] hover:bg-[#D4AF37] hosver:text-black transition-all duration-300 uppercase tracking-widest text-xs font-light shadow-lg ">
+        <span class="font-medium">Menú</span>
+        <i id="menu-icon" class="fas fa-bars text-sm transition-transform duration-300"></i>
+    </button>
+
+    <!-- Menú Desplegable (Alineado a la izquierda y adaptativo a la pantalla) -->
+    <div id="nav-menu"  style="left: -78px;" class="absolute z-50 text-center  mt-3 w-64 max-w-[calc(100vw-2rem)] bg-neutral-950/95 border border-[#D4AF37]/30 backdrop-blur-xl rounded-2xl shadow-2xl p-6 transition-all duration-300 ease-in-out opacity-0 scale-95 pointer-events-none">
+        <nav class="flex flex-col gap-3">
+            <a href="index.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Inicio</a>
+            <a href="sugerir_cancion.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Sugerir Camción</a>
+            <a href="dress_code.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Tips y notas</a>
+            <a href="tarjeta_detalles.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Dress code</a>
+            <a href="wedding_album.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2">Comartir fotos o videos</a>
+        </nav>
+    </div>
+
+    </div>
+ <!--menu-->
+                <!-- Background Glow -->
+                <div class="absolute left-1/2 top-0 w-[420px] h-[420px] -ml-[210px] bg-glow pointer-events-none"></div>
+                
+                <!-- Left Branches SVG -->
+                <svg width="190" height="285" viewBox="0 0 200 300" class="absolute -left-8 md:left-0 top-24 pointer-events-none opacity-80 md:opacity-100">
+                    <path d="M20 290 C40 200 90 140 150 30" fill="none" stroke="#566A38" stroke-width="2.2" stroke-linecap="round"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-115) scale(1.15)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-15) scale(1.15)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-112) scale(1.05)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-12) scale(1.05)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-110) scale(.95)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-10) scale(.95)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-108) scale(.85)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-8) scale(.85)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-105) scale(.75)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-5) scale(.75)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(150 30) rotate(-62) scale(.8)" fill="#4C6030"></path>
+                    <g transform="translate(92 128) scale(.85)">
+                        <circle r="17" fill="#EFE6D2" stroke="#CDBE98" stroke-width=".8"></circle>
+                        <path d="M-14 -4 C-10 -16 8 -17 14 -6 C18 4 8 15 -2 14 C-13 12 -16 2 -14 -4Z" fill="#F6F0E2" stroke="#D3C5A0" stroke-width=".7"></path>
+                        <path d="M-8 -3 C-5 -11 6 -10 8 -2 C9 5 1 9 -4 6 C-8 4 -9 0 -8 -3Z" fill="#EFE5CE" stroke="#CDBE98" stroke-width=".7"></path>
+                        <path d="M-3 -2 C-1 -6 4 -4 3 0 C2 3 -2 3 -3 0" fill="none" stroke="#BFAE84" stroke-width=".8"></path>
+                    </g>
+                </svg>
+
+                <!-- Right Branches SVG -->
+                <svg width="190" height="285" viewBox="0 0 200 300" class="absolute -right-8 md:right-0 top-16 pointer-events-none scale-x-[-1] opacity-80 md:opacity-100">
+                    <path d="M20 290 C40 200 90 140 150 30" fill="none" stroke="#566A38" stroke-width="2.2" stroke-linecap="round"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-115) scale(1.15)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-15) scale(1.15)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-112) scale(1.05)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-12) scale(1.05)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-110) scale(.95)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-10) scale(.95)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-108) scale(.85)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-8) scale(.85)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-105) scale(.75)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-5) scale(.75)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(150 30) rotate(-62) scale(.8)" fill="#4C6030"></path>
+                    <g transform="translate(88 134) scale(1.05)">
+                        <circle r="17" fill="#EFE6D2" stroke="#CDBE98" stroke-width=".8"></circle>
+                        <path d="M-14 -4 C-10 -16 8 -17 14 -6 C18 4 8 15 -2 14 C-13 12 -16 2 -14 -4Z" fill="#F6F0E2" stroke="#D3C5A0" stroke-width=".7"></path>
+                        <path d="M-8 -3 C-5 -11 6 -10 8 -2 C9 5 1 9 -4 6 C-8 4 -9 0 -8 -3Z" fill="#EFE5CE" stroke="#CDBE98" stroke-width=".7"></path>
+                        <path d="M-3 -2 C-1 -6 4 -4 3 0 C2 3 -2 3 -3 0" fill="none" stroke="#BFAE84" stroke-width=".8"></path>
+                    </g>
+                    <g transform="translate(58 182) scale(.75)">
+                        <circle r="17" fill="#EFE6D2" stroke="#CDBE98" stroke-width=".8"></circle>
+                        <path d="M-14 -4 C-10 -16 8 -17 14 -6 C18 4 8 15 -2 14 C-13 12 -16 2 -14 -4Z" fill="#F6F0E2" stroke="#D3C5A0" stroke-width=".7"></path>
+                        <path d="M-8 -3 C-5 -11 6 -10 8 -2 C9 5 1 9 -4 6 C-8 4 -9 0 -8 -3Z" fill="#EFE5CE" stroke="#CDBE98" stroke-width=".7"></path>
+                        <path d="M-3 -2 C-1 -6 4 -4 3 0 C2 3 -2 3 -3 0" fill="none" stroke="#BFAE84" stroke-width=".8"></path>
+                    </g>
+                </svg>
+
+                <div class="relative z-10">
+                    <!-- Sello H M -->
+                     <!-- Sello Circular -->
+
+     <div class="mb-8">
+    <img src="img/Logo.png" class=" mx-auto d-block img-fluid" alt="Logo" style="width: 150px;">
+</div>
+
+                    <div class="font-cinzel text-sm tracking-[0.34em] text-goldLight mb-3">NUESTRA PLAYLIST</div>
+                    <h1 class="font-cinzel font-medium text-4xl md:text-5xl tracking-[0.05em] leading-tight text-cream m-0 drop-shadow-md">SUGERIR CANCIÓN</h1>
+                    <div class="mt-4 text-2xl tracking-[0.16em] text-gold font-cormorant font-semibold">16 . 01 . 2027</div>
+                    <div class="mt-2 font-cinzel text-[15px] tracking-[0.18em] text-cream">HOLMAN <span class="text-gold">&amp;</span> MÓNICA</div>
+                    
+                    <!-- Decorative line -->
+                    <div class="mt-4 flex justify-center">
+                        <svg width="132" height="16" viewBox="0 0 132 16">
+                            <path d="M4 8H52" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                            <path d="M80 8H128" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                            <path d="M66 2L72 8L66 14L60 8Z" fill="#C9A24B"></path>
+                            <path d="M54 8C56 4 59 4 60 8C59 12 56 12 54 8Z" fill="#C9A24B"></path>
+                            <path d="M78 8C76 4 73 4 72 8C73 12 76 12 78 8Z" fill="#C9A24B"></path>
+                        </svg>
+                    </div>
+
+                    <div class="mt-3 font-pinyon text-3xl md:text-4xl leading-snug text-goldLight drop-shadow">La música también cuenta nuestra historia</div>
+                    <div class="max-w-md mx-auto mt-3 text-lg md:text-xl leading-relaxed text-creamDark">¿Cuál es la canción que no debe faltar en la playlist?</div>
+                </div>
+            </div>
+
+            <!-- ================= FORM CARD ================= -->
+            <div class="relative z-10 mx-4 md:mx-10 mt-2">
+                <div class="card-gradient border border-gold rounded-[20px] p-2.5 shadow-[0_22px_48px_rgba(0,0,0,0.4)]">
+                    <div class="border border-gold/50 rounded-[14px] px-5 py-10 md:px-10 text-textNavy relative">
+                        
+                        <!-- Form Header -->
+                        <div class="text-center mb-8">
+                            <h2 class="m-0 font-cinzel font-medium text-2xl tracking-[0.16em] text-textNavy">TU SUGERENCIA</h2>
+                            <div class="my-3 flex justify-center">
+                                <svg width="132" height="16" viewBox="0 0 132 16">
+                                    <path d="M4 8H52" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                                    <path d="M80 8H128" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                                    <path d="M66 2L72 8L66 14L60 8Z" fill="#C9A24B"></path>
+                                    <path d="M54 8C56 4 59 4 60 8C59 12 56 12 54 8Z" fill="#C9A24B"></path>
+                                    <path d="M78 8C76 4 73 4 72 8C73 12 76 12 78 8Z" fill="#C9A24B"></path>
+                                </svg>
+                            </div>
+                            <div class="font-pinyon text-[28px] md:text-3xl leading-snug text-[#8A6B22]">Cuéntanos qué canción te hace bailar</div>
+                        </div>
+
+                        <!-- Form Fields -->
+                        <div id="suggestion-form" class="flex flex-col gap-6">
+                            <!-- Row 1 -->
+                            <div class="flex flex-wrap gap-5">
+                                <div class="flex-1 min-w-[240px]">
+                                    <label for="cancion" class="block mb-2 font-cinzel text-[11px] font-medium tracking-[0.2em] text-textMuted">CANCIÓN *</label>
+                                    <input id="cancion" type="text" placeholder="Ej. Perfect" class="block w-full h-12 px-4 border border-[#CDBB8E] rounded-xl bg-formBg font-cormorant text-xl text-textNavy transition-shadow">
+                                </div>
+                                <div class="flex-1 min-w-[240px]">
+                                    <label for="artista" class="block mb-2 font-cinzel text-[11px] font-medium tracking-[0.2em] text-textMuted">ARTISTA *</label>
+                                    <input id="artista" type="text" placeholder="Ej. Ed Sheeran" class="block w-full h-12 px-4 border border-[#CDBB8E] rounded-xl bg-formBg font-cormorant text-xl text-textNavy transition-shadow">
+                                </div>
+                            </div>
+                            <!-- Row 2 -->
+                            <div class="flex flex-wrap gap-5">
+                                <div class="flex-1 min-w-[240px]">
+                                    <label for="nombre" class="block mb-2 font-cinzel text-[11px] font-medium tracking-[0.2em] text-textMuted">TU NOMBRE *</label>
+                                    <input id="nombre" type="text" placeholder="Quién la sugiere" class="block w-full h-12 px-4 border border-[#CDBB8E] rounded-xl bg-formBg font-cormorant text-xl text-textNavy transition-shadow">
+                                </div>
+                                <div class="flex-1 min-w-[240px]">
+                                    <label for="enlace" class="block mb-2 font-cinzel text-[11px] font-medium tracking-[0.2em] text-textMuted">ENLACE (OPCIONAL)</label>
+                                    <input id="enlace" type="text" placeholder="Spotify o YouTube" class="block w-full h-12 px-4 border border-[#CDBB8E] rounded-xl bg-formBg font-cormorant text-xl text-textNavy transition-shadow">
+                                </div>
+                            </div>
+
+                            <!-- Moment Selection -->
+                            <div>
+                                <div class="mb-3 font-cinzel text-[11px] font-medium tracking-[0.2em] text-textMuted">¿EN QUÉ MOMENTO LA QUIERES ESCUCHAR?</div>
+                                <div class="flex flex-wrap gap-2.5">
+                                    <button type="button" class="moment-btn bg-formBg text-textNavy border border-[#CDBB8E] min-h-[44px] px-5 rounded-full font-cormorant text-lg font-semibold transition-colors duration-300" data-moment="Llegada">Llegada</button>
+                                    <button type="button" class="moment-btn bg-formBg text-textNavy border border-[#CDBB8E] min-h-[44px] px-5 rounded-full font-cormorant text-lg font-semibold transition-colors duration-300" data-moment="Cóctel">Cóctel</button>
+                                    <button type="button" class="moment-btn bg-formBg text-textNavy border border-[#CDBB8E] min-h-[44px] px-5 rounded-full font-cormorant text-lg font-semibold transition-colors duration-300" data-moment="Cena">Cena</button>
+                                    <button type="button" class="moment-btn bg-navyLight text-cream border border-gold min-h-[44px] px-5 rounded-full font-cormorant text-lg font-semibold transition-colors duration-300" data-moment="Pista de baile" data-selected="true">Pista de baile</button>
+                                    <button type="button" class="moment-btn bg-formBg text-textNavy border border-[#CDBB8E] min-h-[44px] px-5 rounded-full font-cormorant text-lg font-semibold transition-colors duration-300" data-moment="Cierre">Cierre</button>
+                                </div>
+                                <!-- Error msg inline -->
+                                <p id="moment-error" class="text-red-700 text-sm mt-2 hidden font-cormorant font-bold">Por favor selecciona un momento.</p>
+                            </div>
+
+                            <!-- Textarea -->
+                            <div>
+                                <label for="dedicatoria" class="block mb-2 font-cinzel text-[11px] font-medium tracking-[0.2em] text-textMuted">DEDICATORIA (OPCIONAL)</label>
+                                <textarea id="dedicatoria" rows="3" placeholder="Para Holman y Mónica, con todo mi cariño..." class="block w-full h-24 p-3 border border-[#CDBB8E] rounded-xl bg-formBg font-cormorant text-xl leading-snug text-textNavy resize-y transition-shadow"></textarea>
+                            </div>
+                            
+                            <!-- Submit Error msg inline -->
+                            <p id="form-error" class="text-red-700 text-sm -mt-2 hidden font-cormorant font-bold text-center">Por favor completa los campos obligatorios (*).</p>
+
+                            <!-- Submit Button & Feedback -->
+                            <div class="mt-2">
+                                <button id="btn-submit" type="button" class="w-full min-h-[56px] flex items-center justify-center gap-3 rounded-xl border border-gold bg-navyLight text-cream font-cinzel text-sm font-medium tracking-[0.22em] shadow-[0_6px_16px_rgba(10,22,52,0.35)] hover:bg-[#0f1f3d] transition-all transform hover:-translate-y-0.5">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E3C77E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V6l10-2v12"></path><circle cx="6.5" cy="18" r="2.5"></circle><circle cx="16.5" cy="16" r="2.5"></circle></svg>
+                                    ENVIAR SUGERENCIA
+                                </button>
+                                
+                                <div id="feedback-pre" class="mt-4 text-center text-[18px] italic text-textMuted transition-opacity">
+                                    Cada canción será parte de la playlist de nuestro gran día.
+                                </div>
+                                
+                                <div id="feedback-post" class="mt-4 text-center text-[19px] font-semibold text-[#8A6B22] hidden transition-opacity">
+                                    ¡Gracias! Tu canción ya viaja hacia nuestra playlist.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= PLAYLIST SECTION ================= -->
+            <div class="relative pt-16 px-6 pb-4 text-center">
+                <h2 class="m-0 font-cinzel font-medium text-xl md:text-2xl tracking-[0.16em] text-cream drop-shadow">YA ESTÁN EN LA PLAYLIST</h2>
+                <div class="my-3 flex justify-center">
+                    <svg width="132" height="16" viewBox="0 0 132 16">
+                        <path d="M4 8H52" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                        <path d="M80 8H128" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                        <path d="M66 2L72 8L66 14L60 8Z" fill="#C9A24B"></path>
+                        <path d="M54 8C56 4 59 4 60 8C59 12 56 12 54 8Z" fill="#C9A24B"></path>
+                        <path d="M78 8C76 4 73 4 72 8C73 12 76 12 78 8Z" fill="#C9A24B"></path>
+                    </svg>
+                </div>
+                <div class="font-pinyon text-2xl md:text-3xl leading-snug text-goldLight drop-shadow">Súmate con un corazón a las que más te gusten</div>
+
+                <!-- Song List -->
+                <div id="playlist-container" class="flex flex-col gap-3 mt-8 text-left max-w-2xl mx-auto">
+                    
+                    <!-- Song 1 -->
+                    <div class="flex items-center gap-4 p-3.5 pl-4 border border-gold/40 rounded-[14px] bg-white/5 shadow-md hover:bg-white/10 transition-colors">
+                        <svg width="46" height="46" viewBox="0 0 46 46" class="flex-none">
+                            <circle cx="23" cy="23" r="21" fill="#0A1634" stroke="#C9A24B" stroke-width="1.2"></circle>
+                            <circle cx="23" cy="23" r="15" fill="none" stroke="rgba(201,162,75,.35)" stroke-width=".8"></circle>
+                            <circle cx="23" cy="23" r="10" fill="none" stroke="rgba(201,162,75,.25)" stroke-width=".8"></circle>
+                            <circle cx="23" cy="23" r="6" fill="#C9A24B"></circle>
+                            <circle cx="23" cy="23" r="1.6" fill="#0A1634"></circle>
+                        </svg>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[20px] md:text-[23px] font-semibold leading-tight text-cream truncate">Perfect</div>
+                            <div class="mt-0.5 text-[15px] md:text-[17px] text-[#CDBF9E] truncate">Ed Sheeran</div>
+                        </div>
+                        <div class="max-w-[110px] text-right font-cinzel text-[9px] md:text-[10px] tracking-[0.18em] leading-relaxed text-gold hidden sm:block">
+                            CENA
+                        </div>
+                        <button type="button" class="like-btn flex-none w-11 h-11 flex items-center justify-center bg-transparent border-0 cursor-pointer transform hover:scale-110 transition-transform" aria-pressed="true">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="#C9A24B" stroke="#C9A24B" stroke-width="1.6" stroke-linejoin="round">
+                                <path d="M12 20.5s-7.5-4.6-9.2-9.3C1.6 7.8 3.7 5 6.6 5c1.9 0 3.5 1 5.4 3 1.9-2 3.5-3 5.4-3 2.9 0 5 2.8 3.8 6.2C19.5 15.9 12 20.5 12 20.5z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Song 2 -->
+                    <div class="flex items-center gap-4 p-3.5 pl-4 border border-gold/40 rounded-[14px] bg-white/5 shadow-md hover:bg-white/10 transition-colors">
+                        <svg width="46" height="46" viewBox="0 0 46 46" class="flex-none">
+                            <circle cx="23" cy="23" r="21" fill="#0A1634" stroke="#C9A24B" stroke-width="1.2"></circle>
+                            <circle cx="23" cy="23" r="15" fill="none" stroke="rgba(201,162,75,.35)" stroke-width=".8"></circle>
+                            <circle cx="23" cy="23" r="10" fill="none" stroke="rgba(201,162,75,.25)" stroke-width=".8"></circle>
+                            <circle cx="23" cy="23" r="6" fill="#C9A24B"></circle>
+                            <circle cx="23" cy="23" r="1.6" fill="#0A1634"></circle>
+                        </svg>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[20px] md:text-[23px] font-semibold leading-tight text-cream truncate">Vivir Mi Vida</div>
+                            <div class="mt-0.5 text-[15px] md:text-[17px] text-[#CDBF9E] truncate">Marc Anthony</div>
+                        </div>
+                        <div class="max-w-[110px] text-right font-cinzel text-[9px] md:text-[10px] tracking-[0.18em] leading-relaxed text-gold hidden sm:block">
+                            PISTA DE BAILE
+                        </div>
+                        <button type="button" class="like-btn flex-none w-11 h-11 flex items-center justify-center bg-transparent border-0 cursor-pointer transform hover:scale-110 transition-transform" aria-pressed="false">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#C9A24B" stroke-width="1.6" stroke-linejoin="round">
+                                <path d="M12 20.5s-7.5-4.6-9.2-9.3C1.6 7.8 3.7 5 6.6 5c1.9 0 3.5 1 5.4 3 1.9-2 3.5-3 5.4-3 2.9 0 5 2.8 3.8 6.2C19.5 15.9 12 20.5 12 20.5z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Song 3 -->
+                    <div class="flex items-center gap-4 p-3.5 pl-4 border border-gold/40 rounded-[14px] bg-white/5 shadow-md hover:bg-white/10 transition-colors">
+                        <svg width="46" height="46" viewBox="0 0 46 46" class="flex-none">
+                            <circle cx="23" cy="23" r="21" fill="#0A1634" stroke="#C9A24B" stroke-width="1.2"></circle>
+                            <circle cx="23" cy="23" r="15" fill="none" stroke="rgba(201,162,75,.35)" stroke-width=".8"></circle>
+                            <circle cx="23" cy="23" r="10" fill="none" stroke="rgba(201,162,75,.25)" stroke-width=".8"></circle>
+                            <circle cx="23" cy="23" r="6" fill="#C9A24B"></circle>
+                            <circle cx="23" cy="23" r="1.6" fill="#0A1634"></circle>
+                        </svg>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-[20px] md:text-[23px] font-semibold leading-tight text-cream truncate">Colgando en Tus Manos</div>
+                            <div class="mt-0.5 text-[15px] md:text-[17px] text-[#CDBF9E] truncate">Carlos Baute & Marta Sánchez</div>
+                        </div>
+                        <div class="max-w-[110px] text-right font-cinzel text-[9px] md:text-[10px] tracking-[0.18em] leading-relaxed text-gold hidden sm:block">
+                            CÓCTEL
+                        </div>
+                        <button type="button" class="like-btn flex-none w-11 h-11 flex items-center justify-center bg-transparent border-0 cursor-pointer transform hover:scale-110 transition-transform" aria-pressed="true">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="#C9A24B" stroke="#C9A24B" stroke-width="1.6" stroke-linejoin="round">
+                                <path d="M12 20.5s-7.5-4.6-9.2-9.3C1.6 7.8 3.7 5 6.6 5c1.9 0 3.5 1 5.4 3 1.9-2 3.5-3 5.4-3 2.9 0 5 2.8 3.8 6.2C19.5 15.9 12 20.5 12 20.5z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ================= FOOTER / CLOSING ================= -->
+            <div class="relative pt-12 pb-20 px-6 text-center overflow-hidden">
+                <!-- SVG Decorative Branches Footer -->
+                <svg width="150" height="225" viewBox="0 0 200 300" class="absolute -left-6 -bottom-3 opacity-95 pointer-events-none">
+                    <path d="M20 290 C40 200 90 140 150 30" fill="none" stroke="#566A38" stroke-width="2.2" stroke-linecap="round"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-115) scale(1.15)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-15) scale(1.15)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-112) scale(1.05)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-12) scale(1.05)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-110) scale(.95)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-10) scale(.95)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-108) scale(.85)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-8) scale(.85)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-105) scale(.75)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-5) scale(.75)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(150 30) rotate(-62) scale(.8)" fill="#4C6030"></path>
+                </svg>
+                
+                <svg width="150" height="225" viewBox="0 0 200 300" class="absolute -right-6 -bottom-3 opacity-95 pointer-events-none scale-x-[-1]">
+                    <path d="M20 290 C40 200 90 140 150 30" fill="none" stroke="#566A38" stroke-width="2.2" stroke-linecap="round"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-115) scale(1.15)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(31 251) rotate(-15) scale(1.15)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-112) scale(1.05)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(52 205) rotate(-12) scale(1.05)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-110) scale(.95)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(75 160) rotate(-10) scale(.95)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-108) scale(.85)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(100 112) rotate(-8) scale(.85)" fill="#4C6030"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-105) scale(.75)" fill="#6F8450"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(130 66) rotate(-5) scale(.75)" fill="#5F7441"></path>
+                    <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z" transform="translate(150 30) rotate(-62) scale(.8)" fill="#4C6030"></path>
+                </svg>
+
+                <div class="relative z-10 max-w-[420px] mx-auto">
+                    <div class="font-pinyon text-3xl md:text-4xl leading-snug text-goldLight drop-shadow">Gracias por ayudarnos a elegir la música de nuestro gran día</div>
+                    <div class="my-4 flex justify-center">
+                        <svg width="132" height="16" viewBox="0 0 132 16">
+                            <path d="M4 8H52" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                            <path d="M80 8H128" stroke="#C9A24B" stroke-width="1" fill="none"></path>
+                            <path d="M66 2L72 8L66 14L60 8Z" fill="#C9A24B"></path>
+                            <path d="M54 8C56 4 59 4 60 8C59 12 56 12 54 8Z" fill="#C9A24B"></path>
+                            <path d="M78 8C76 4 73 4 72 8C73 12 76 12 78 8Z" fill="#C9A24B"></path>
+                        </svg>
+                    </div>
+                    <div class="font-cinzel text-lg tracking-[0.2em] text-cream">HOLMAN <span class="text-gold">&amp;</span> MÓNICA</div>
+                    <div class="mt-3 flex justify-center">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="#C9A24B" stroke="#C9A24B" stroke-width="1.6" stroke-linejoin="round">
+                            <path d="M12 20.5s-7.5-4.6-9.2-9.3C1.6 7.8 3.7 5 6.6 5c1.9 0 3.5 1 5.4 3 1.9-2 3.5-3 5.4-3 2.9 0 5 2.8 3.8 6.2C19.5 15.9 12 20.5 12 20.5z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+ //menu
+ const menuBtn = document.getElementById('menu-btn');
+const navMenu = document.getElementById('nav-menu');
+const menuIcon = document.getElementById('menu-icon');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function openMenu() {
+    navMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+    navMenu.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-xmark');
+}
+
+function closeMenu() {
+    navMenu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    navMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+}
+
+menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.contains('opacity-100');
+    isOpen ? closeMenu() : openMenu();
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        closeMenu();
+    }
+});
+        //menu
+         //Music
+
+   // Seleccionamos los elementos del HTML
+    const musicBtn = document.getElementById('music-btn');
+    const bgMusic = document.getElementById('bg-music');
+    const musicIcon = document.getElementById('music-icon');
+
+    // Agregamos la acción al hacer clic en el botón
+    musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            // Cambiamos el ícono de FontAwesome a "pausa"
+            musicIcon.classList.remove('fa-music');
+            musicIcon.classList.add('fa-pause');
+        } else {
+            bgMusic.pause();
+            // Volvemos al ícono original
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-music');
+        }
+    });
+   //music
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. Moments Selection Logic ---
+            const momentBtns = document.querySelectorAll('.moment-btn');
+            const momentError = document.getElementById('moment-error');
+            let currentMoment = 'Pista de baile'; // Default Selected
+
+            momentBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Reset all buttons to inactive state
+                    momentBtns.forEach(b => {
+                        b.classList.remove('bg-navyLight', 'text-cream', 'border-gold');
+                        b.classList.add('bg-formBg', 'text-textNavy', 'border-[#CDBB8E]');
+                        b.removeAttribute('data-selected');
+                    });
+                    
+                    // Set clicked button to active state
+                    e.target.classList.remove('bg-formBg', 'text-textNavy', 'border-[#CDBB8E]');
+                    e.target.classList.add('bg-navyLight', 'text-cream', 'border-gold');
+                    e.target.setAttribute('data-selected', 'true');
+                    
+                    currentMoment = e.target.getAttribute('data-moment');
+                    momentError.classList.add('hidden'); // clear error if any
+                });
+            });
+
+            // --- 2. Form Submission Logic ---
+            const btnSubmit = document.getElementById('btn-submit');
+            const cancionInput = document.getElementById('cancion');
+            const artistaInput = document.getElementById('artista');
+            const nombreInput = document.getElementById('nombre');
+            const formError = document.getElementById('form-error');
+            
+            const feedbackPre = document.getElementById('feedback-pre');
+            const feedbackPost = document.getElementById('feedback-post');
+
+            btnSubmit.addEventListener('click', () => {
+                // Inline Validation (Required fields: Canción, Artista, Nombre)
+                if(!cancionInput.value.trim() || !artistaInput.value.trim() || !nombreInput.value.trim()) {
+                    formError.classList.remove('hidden');
+                    return;
+                }
+                
+                if(!currentMoment) {
+                    momentError.classList.remove('hidden');
+                    return;
+                }
+
+                // If valid, simulate submission
+                formError.classList.add('hidden');
+                
+                // Switch Feedback messages
+                btnSubmit.style.display = 'none';
+                feedbackPre.classList.add('hidden');
+                feedbackPost.classList.remove('hidden');
+                
+                // Optionally clear form
+                // document.getElementById('suggestion-form').querySelectorAll('input, textarea').forEach(el => el.value = '');
+            });
+
+            // --- 3. Like Buttons Logic for Playlist ---
+            const likeBtns = document.querySelectorAll('.like-btn');
+            
+            likeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const icon = this.querySelector('svg');
+                    const isLiked = this.getAttribute('aria-pressed') === 'true';
+                    
+                    if (isLiked) {
+                        // Unlike
+                        this.setAttribute('aria-pressed', 'false');
+                        icon.setAttribute('fill', 'none');
+                    } else {
+                        // Like
+                        this.setAttribute('aria-pressed', 'true');
+                        icon.setAttribute('fill', '#C9A24B');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Boda</title>
+    
+    <!-- Fuentes de Google: Cinzel (Títulos) y Cormorant Garamond (Descripciones) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de colores solicitada */
+            --color-bg: #F6EFE0;        /* Crema / Marfil */
+            --color-gold: #C9A24B;      /* Dorado */
+            --color-green: #1E2D26;     /* Verde bosque muy oscuro */
+            --color-placeholder-bg: rgba(201, 162, 75, 0.1); /* Dorado semi-transparente */
+            
+            /* Tipografías */
+            --font-cinzel: 'Cinzel', serif;
+            --font-cormorant: 'Cormorant Garamond', serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #2c2c2c; /* Fondo oscuro exterior para contraste */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: var(--font-cormorant);
+            color: var(--color-green);
+            box-sizing: border-box;
+        }
+
+        /* -------------------------------------------
+           CONTENEDOR PRINCIPAL (Tarjeta)
+           ------------------------------------------- */
+        .menu-card {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Más ancha para acomodar 2 columnas */
+            background-color: var(--color-bg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 20px; /* Espacio para el borde exterior */
+        }
+
+        /* Marco interior dorado */
+        .inner-frame {
+            position: absolute;
+            inset: 15px; /* Distancia desde el borde de la tarjeta */
+            border: 1px solid var(--color-gold);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* -------------------------------------------
+           PLACEHOLDERS (Imágenes y Adornos)
+           ------------------------------------------- */
+        .placeholder {
+            background-color: var(--color-placeholder-bg);
+            border: 1px dashed var(--color-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-family: sans-serif;
+            font-size: 11px;
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Esquinas botánicas (Absolutas) */
+        .floral-corner {
+            position: absolute;
+            width: clamp(100px, 20vw, 180px);
+            height: clamp(120px, 25vw, 220px);
+            z-index: 0; /* Detrás del contenido */
+        }
+        .floral-tl { top: 0; left: 0; }
+        .floral-tr { top: 0; right: 0; }
+        .floral-bl { bottom: 0; left: 0; }
+        .floral-br { bottom: 0; right: 0; }
+
+        /* Íconos centrales */
+        .icon-monogram {
+            width: clamp(80px, 15vw, 120px);
+            height: clamp(80px, 15vw, 120px);
+            margin: 0 auto 20px auto;
+        }
+        
+        .icon-divider {
+            width: 100px;
+            height: 20px;
+            margin: 30px auto 20px auto;
+        }
+
+        /* -------------------------------------------
+           CONTENIDO (Z-index superior para estar sobre flores)
+           ------------------------------------------- */
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: clamp(40px, 8vw, 60px) clamp(20px, 5vw, 40px);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* Tipografías Globales */
+        .font-cinzel { font-family: var(--font-cinzel); }
+        .text-gold { color: var(--color-gold); }
+
+        /* Encabezado */
+        .main-title {
+            font-size: clamp(28px, 5vw, 36px);
+            letter-spacing: 0.25em;
+            font-weight: 500;
+            margin: 0 0 40px 0;
+            text-indent: 0.25em; /* Compensa el letter-spacing para centrado perfecto */
+        }
+
+        /* -------------------------------------------
+           GRID DE MENÚ (Doble Columna)
+           ------------------------------------------- */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 60px;
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .course-title {
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .course-desc {
+            font-size: 19px;
+            line-height: 1.4;
+            margin: 0;
+            color: var(--color-green);
+        }
+
+        /* Pequeño adorno o línea separadora opcional bajo la descripción */
+        .menu-item::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 1px;
+            background-color: var(--color-gold);
+            opacity: 0.5;
+            margin-top: 20px;
+        }
+
+        /* Ocultar el separador de los últimos elementos en escritorio para limpieza visual */
+        .menu-item:nth-last-child(-n+2)::after {
+            display: none;
+        }
+
+        /* -------------------------------------------
+           PIE DE PÁGINA
+           ------------------------------------------- */
+        .footer {
+            margin-top: auto; /* Empuja el footer hacia abajo */
+            padding-top: 20px;
+        }
+
+        .date, .location {
+            font-size: 14px;
+            letter-spacing: 0.25em;
+            font-weight: 600;
+            margin: 5px 0;
+        }
+
+        /* -------------------------------------------
+           RESPONSIVE (Móvil)
+           ------------------------------------------- */
+        @media (max-width: 600px) {
+            .menu-grid {
+                grid-template-columns: 1fr; /* Colapsa a 1 columna */
+                gap: 35px;
+            }
+
+            /* Mostrar línea divisoria en todos menos el último en móvil */
+            .menu-item::after {
+                display: block !important;
+            }
+            .menu-item:last-child::after {
+                display: none !important;
+            }
+
+            .main-title {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-card">
+        
+        <!-- MARCO INTERIOR -->
+        <div class="inner-frame"></div>
+
+        <!-- FLORES EN ESQUINAS (Placeholders) -->
+        <div class="placeholder floral-corner floral-tl">IMG: Flores<br>Sup. Izq.</div>
+        <div class="placeholder floral-corner floral-tr">IMG: Flores<br>Sup. Der.</div>
+        <div class="placeholder floral-corner floral-bl">IMG: Flores<br>Inf. Izq.</div>
+        <div class="placeholder floral-corner floral-br">IMG: Flores<br>Inf. Der.</div>
+
+        <!-- CONTENIDO CENTRAL -->
+        <div class="content">
+            
+            <!-- Monograma -->
+            <div class="placeholder icon-monogram">IMG:<br>Monograma<br>HM</div>
+
+            <!-- Título Principal -->
+            <h1 class="font-cinzel main-title text-gold">MENÚ</h1>
+
+            <!-- Grid Doble Columna de Platos -->
+            <div class="menu-grid">
+                
+                <!-- Item 1: Entrada -->
+                <div class="menu-item">
+                    <div class="font-cinzel course-title">ENTRADA</div>
+                    <p class="course-desc">Burrata con tomates heirloom,<br>albahaca fresca y reducción<br>de balsámico.</p>
+                </div>
+
+                <!-- Item 2: Plato Fuerte -->
+                <div class="menu-item">
+                    <div class="font-cinzel course-title">PLATO FUERTE</div>
+                    <p class="course-desc">Filete de res en salsa de vino tinto,<br>puré de papa trufado y<br>espárragos salteados.</p>
+                </div>
+
+                <!-- Item 3: Opción Vegetariana -->
+                <div class="menu-item">
+                    <div class="font-cinzel course-title">OPCIÓN VEGETARIANA</div>
+                    <p class="course-desc">Risotto de hongos silvestres<br>con parmesano y aceite<br>de trufa blanca.</p>
+                </div>
+
+                <!-- Item 4: Postre -->
+                <div class="menu-item">
+                    <div class="font-cinzel course-title">POSTRE</div>
+                    <p class="course-desc">Tarta de chocolate oscuro<br>con frutos rojos y helado<br>de vainilla.</p>
+                </div>
+
+            </div>
+
+            <!-- Pie de la Tarjeta -->
+            <div class="footer">
+                <div class="placeholder icon-divider">IMG: Hojas/Divisor</div>
+                <div class="font-cinzel date text-gold">16 . 01 . 2027</div>
+                <div class="font-cinzel location text-gold">CASA DUQUE</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,1473 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Dress code</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración de Tailwind para Colores y Fuentes personalizadas -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0d1b2a',
+                        navyDark: '#061c33',
+                        gold: '#b5965b',
+                        goldLight: '#cba153',
+                        cream: '#f4f1ea'
+                    },
+                    fontFamily: {
+                        playfair: ['"Playfair Display"', 'serif'],
+                        vibes: ['"Great Vibes"', 'cursive'],
+                        montserrat: ['"Montserrat"', 'sans-serif']
+                    }
+                }
+            }
+        }
+
+  
+    </script>
+    <style>
+      body {
+        margin: 0;
+        background: #0a1634;
+      }
+      button {
+        cursor: pointer;
+      }
+      button:focus-visible {
+        outline: 2px solid #e3c77e;
+        outline-offset: 3px;
+      }
+      .dc-div {
+        border-left: 1px solid rgba(201, 162, 75, 0.6);
+      }
+      @media (max-width: 640px) {
+        .dc-div {
+          border-left: 0;
+          border-top: 1px solid rgba(201, 162, 75, 0.6);
+          padding-top: 28px;
+          margin-top: 8px;
+        }
+        .dc-sprig {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div
+      id="inicio"
+      style="
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-color: #0a1634;
+        background-image: radial-gradient(
+          ellipse 120% 40% at 50% 0%,
+          #1d3868 0%,
+          #0f2247 45%,
+          #0a1634 100%
+        );
+        color: #f4ecdc;
+        font-family: &quot;Cormorant Garamond&quot;, serif;
+      "
+    >
+      <div style="position: relative; max-width: 728px; margin: 0 auto">
+
+         <header class="w-full flex justify-between items-center p-6 md:px-12 relative z-10">
+             
+            <!--music-->
+            <!-- Tu botón modificado con IDs -->
+            <button id="music-btn" class="fixed top-4 right-4 z-[9999] w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-colors duration-300">
+                <i id="music-icon" class="fas fa-music"></i>
+            </button>
+
+                        <audio id="bg-music" loop>
+                <!-- Reemplaza "ruta/a/tu-cancion.mp3" con la ruta real de tu archivo -->
+                <source src="music/Musics_01.mp3" type="audio/mpeg">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+            <!--music-->
+        </header>
+        <!-- ===== HERO ===== -->
+         
+        <div
+          style="
+            position: relative;
+            padding: 92px 24px 34px;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              position: absolute;
+              left: 50%;
+              top: 10px;
+              width: 420px;
+              height: 420px;
+              margin-left: -210px;
+              background: radial-gradient(
+                circle,
+                rgba(201, 162, 75, 0.2) 0%,
+                rgba(201, 162, 75, 0) 62%
+              );
+              pointer-events: none;
+            "
+          ></div>
+          <!-- luces -->
+          <svg
+            width="200"
+            height="100"
+            viewBox="0 0 180 110"
+            aria-hidden="true"
+            style="position: absolute; left: 84px; top: 22px"
+          >
+            <path
+              d="M0 40 Q90 110 180 50"
+              fill="none"
+              stroke="rgba(227,199,126,.35)"
+              stroke-width="1"
+            ></path>
+            <circle cx="36" cy="63" r="8" fill="#FFD98A" opacity=".16"></circle>
+            <circle cx="36" cy="63" r="2.6" fill="#FFE9B0"></circle>
+            <circle cx="72" cy="75" r="8" fill="#FFD98A" opacity=".16"></circle>
+            <circle cx="72" cy="75" r="2.6" fill="#FFE9B0"></circle>
+            <circle
+              cx="108"
+              cy="77"
+              r="8"
+              fill="#FFD98A"
+              opacity=".16"
+            ></circle>
+            <circle cx="108" cy="77" r="2.6" fill="#FFE9B0"></circle>
+            <circle
+              cx="144"
+              cy="69"
+              r="8"
+              fill="#FFD98A"
+              opacity=".16"
+            ></circle>
+            <circle cx="144" cy="69" r="2.6" fill="#FFE9B0"></circle>
+            <circle
+              cx="176"
+              cy="51"
+              r="8"
+              fill="#FFD98A"
+              opacity=".16"
+            ></circle>
+            <circle cx="176" cy="51" r="2.6" fill="#FFE9B0"></circle>
+          </svg>
+          <svg
+            width="200"
+            height="100"
+            viewBox="0 0 180 110"
+            aria-hidden="true"
+            style="
+              position: absolute;
+              right: 120px;
+              top: 34px;
+              transform: scaleX(-1);
+            "
+          >
+            <path
+              d="M0 40 Q90 110 180 50"
+              fill="none"
+              stroke="rgba(227,199,126,.35)"
+              stroke-width="1"
+            ></path>
+            <circle cx="36" cy="63" r="8" fill="#FFD98A" opacity=".16"></circle>
+            <circle cx="36" cy="63" r="2.6" fill="#FFE9B0"></circle>
+            <circle cx="72" cy="75" r="8" fill="#FFD98A" opacity=".16"></circle>
+            <circle cx="72" cy="75" r="2.6" fill="#FFE9B0"></circle>
+            <circle
+              cx="108"
+              cy="77"
+              r="8"
+              fill="#FFD98A"
+              opacity=".16"
+            ></circle>
+            <circle cx="108" cy="77" r="2.6" fill="#FFE9B0"></circle>
+            <circle
+              cx="144"
+              cy="69"
+              r="8"
+              fill="#FFD98A"
+              opacity=".16"
+            ></circle>
+            <circle cx="144" cy="69" r="2.6" fill="#FFE9B0"></circle>
+            <circle
+              cx="176"
+              cy="51"
+              r="8"
+              fill="#FFD98A"
+              opacity=".16"
+            ></circle>
+            <circle cx="176" cy="51" r="2.6" fill="#FFE9B0"></circle>
+          </svg>
+          <!-- ramas izquierda (1 rosa) -->
+          <svg
+            width="190"
+            height="285"
+            viewBox="0 0 200 300"
+            aria-hidden="true"
+            style="position: absolute; left: -34px; top: 104px"
+          >
+            <path
+              d="M20 290 C40 200 90 140 150 30"
+              fill="none"
+              stroke="#566A38"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-115) scale(1.15)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-15) scale(1.15)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-112) scale(1.05)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-12) scale(1.05)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-110) scale(.95)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-10) scale(.95)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-108) scale(.85)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-8) scale(.85)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-105) scale(.75)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-5) scale(.75)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(150 30) rotate(-62) scale(.8)"
+              fill="#4C6030"
+            ></path>
+            <g transform="translate(92 128) scale(.85)">
+              <circle
+                r="17"
+                fill="#EFE6D2"
+                stroke="#CDBE98"
+                stroke-width=".8"
+              ></circle>
+              <path
+                d="M-14 -4 C-10 -16 8 -17 14 -6 C18 4 8 15 -2 14 C-13 12 -16 2 -14 -4Z"
+                fill="#F6F0E2"
+                stroke="#D3C5A0"
+                stroke-width=".7"
+              ></path>
+              <path
+                d="M-8 -3 C-5 -11 6 -10 8 -2 C9 5 1 9 -4 6 C-8 4 -9 0 -8 -3Z"
+                fill="#EFE5CE"
+                stroke="#CDBE98"
+                stroke-width=".7"
+              ></path>
+              <path
+                d="M-3 -2 C-1 -6 4 -4 3 0 C2 3 -2 3 -3 0"
+                fill="none"
+                stroke="#BFAE84"
+                stroke-width=".8"
+              ></path>
+            </g>
+          </svg>
+          <!-- ramas derecha (2 rosas) -->
+          <svg
+            width="190"
+            height="285"
+            viewBox="0 0 200 300"
+            aria-hidden="true"
+            style="
+              position: absolute;
+              right: -34px;
+              top: 70px;
+              transform: scaleX(-1);
+            "
+          >
+            <path
+              d="M20 290 C40 200 90 140 150 30"
+              fill="none"
+              stroke="#566A38"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-115) scale(1.15)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-15) scale(1.15)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-112) scale(1.05)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-12) scale(1.05)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-110) scale(.95)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-10) scale(.95)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-108) scale(.85)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-8) scale(.85)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-105) scale(.75)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-5) scale(.75)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(150 30) rotate(-62) scale(.8)"
+              fill="#4C6030"
+            ></path>
+            <g transform="translate(88 134) scale(1.05)">
+              <circle
+                r="17"
+                fill="#EFE6D2"
+                stroke="#CDBE98"
+                stroke-width=".8"
+              ></circle>
+              <path
+                d="M-14 -4 C-10 -16 8 -17 14 -6 C18 4 8 15 -2 14 C-13 12 -16 2 -14 -4Z"
+                fill="#F6F0E2"
+                stroke="#D3C5A0"
+                stroke-width=".7"
+              ></path>
+              <path
+                d="M-8 -3 C-5 -11 6 -10 8 -2 C9 5 1 9 -4 6 C-8 4 -9 0 -8 -3Z"
+                fill="#EFE5CE"
+                stroke="#CDBE98"
+                stroke-width=".7"
+              ></path>
+              <path
+                d="M-3 -2 C-1 -6 4 -4 3 0 C2 3 -2 3 -3 0"
+                fill="none"
+                stroke="#BFAE84"
+                stroke-width=".8"
+              ></path>
+            </g>
+            <g transform="translate(58 182) scale(.75)">
+              <circle
+                r="17"
+                fill="#EFE6D2"
+                stroke="#CDBE98"
+                stroke-width=".8"
+              ></circle>
+              <path
+                d="M-14 -4 C-10 -16 8 -17 14 -6 C18 4 8 15 -2 14 C-13 12 -16 2 -14 -4Z"
+                fill="#F6F0E2"
+                stroke="#D3C5A0"
+                stroke-width=".7"
+              ></path>
+              <path
+                d="M-8 -3 C-5 -11 6 -10 8 -2 C9 5 1 9 -4 6 C-8 4 -9 0 -8 -3Z"
+                fill="#EFE5CE"
+                stroke="#CDBE98"
+                stroke-width=".7"
+              ></path>
+              <path
+                d="M-3 -2 C-1 -6 4 -4 3 0 C2 3 -2 3 -3 0"
+                fill="none"
+                stroke="#BFAE84"
+                stroke-width=".8"
+              ></path>
+            </g>
+          </svg>
+   
+        
+          <!-- contenido -->
+          <div style="position: relative; z-index: 2">
+<!--menu-->
+        <!-- Contenedor relativo del menú -->
+    <div class="relative inline-block  fixed inset-0 items-center  justify-center ">
+    
+    <!-- Botón del menú -->
+    <button id="menu-btn" aria-label="Abrir Menú"  class="items-center gap-3 px-5 py-2.5 rounded-full border border-[#D4AF37]/40 bg-black/60 backdrop-blur-md text-[#D4AF37] hover:bg-[#D4AF37] hosver:text-black transition-all duration-300 uppercase tracking-widest text-xs font-light shadow-lg ">
+        <span class="font-medium">Menú</span>
+        <i id="menu-icon" class="fas fa-bars text-sm transition-transform duration-300"></i>
+    </button>
+
+    <!-- Menú Desplegable (Alineado a la izquierda y adaptativo a la pantalla) -->
+    <div id="nav-menu"  style="left: -78px;" class="absolute z-50 text-center  mt-3 w-64 max-w-[calc(100vw-2rem)] bg-neutral-950/95 border border-[#D4AF37]/30 backdrop-blur-xl rounded-2xl shadow-2xl p-6 transition-all duration-300 ease-in-out opacity-0 scale-95 pointer-events-none">
+        <nav class="flex flex-col gap-3">
+            <a href="index.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Inicio</a>
+            <a href="sugerir_cancion.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Sugerir Camción</a>
+            <a href="dress_code.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Tips y notas</a>
+            <a href="tarjeta_detalles.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Dress code</a>
+            <a href="wedding_album.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2">Comartir fotos o videos</a>
+        </nav>
+    </div>
+
+    </div>
+ <!--menu-->
+
+           <div class="mb-8">
+    <img src="img/Logo.png" class=" mx-auto d-block img-fluid" alt="Logo" style="width: 150px;">
+</div>
+            <div
+              style="
+                margin-top: 16px;
+                font-family: Cinzel, serif;
+                font-size: 16px;
+                letter-spacing: 0.22em;
+                color: #f4ecdc;
+              "
+            >
+              HOLMAN <span style="color: #c9a24b">&amp;</span> MÓNICA
+            </div>
+            <div
+              style="
+                margin-top: 8px;
+                font-size: 22px;
+                letter-spacing: 0.24em;
+                color: #c9a24b;
+              "
+            >
+              16 . 01 . 2027
+            </div>
+            <div
+              style="
+                margin-top: 10px;
+                font-family: Cinzel, serif;
+                font-size: 14px;
+                letter-spacing: 0.2em;
+                color: #f4ecdc;
+              "
+            >
+              CASA DUQUE
+            </div>
+            <div
+              style="
+                margin-top: 4px;
+                font-size: 14px;
+                letter-spacing: 0.16em;
+                color: #cdbf9e;
+              "
+            >
+              EL ROSAL, SUBACHOQUE, CUNDINAMARCA, COLOMBIA
+            </div>
+            <div
+              style="
+                margin-top: 26px;
+                font-family: Cinzel, serif;
+                font-size: 12px;
+                letter-spacing: 0.34em;
+                color: #e3c77e;
+              "
+            >
+              TIMELESS GARDEN ELEGANCE
+            </div>
+            <h1
+              style="
+                margin: 10px 0 0;
+                font-family: Cinzel, serif;
+                font-weight: 500;
+                font-size: clamp(36px, 10vw, 60px);
+                letter-spacing: 0.12em;
+                line-height: 1.05;
+                color: #f4ecdc;
+              "
+            >
+              DRESS CODE
+            </h1>
+            <div
+              style="margin-top: 14px; display: flex; justify-content: center"
+            >
+              <svg
+                width="132"
+                height="16"
+                viewBox="0 0 132 16"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 8H52"
+                  stroke="#C9A24B"
+                  stroke-width="1"
+                  fill="none"
+                ></path>
+                <path
+                  d="M80 8H128"
+                  stroke="#C9A24B"
+                  stroke-width="1"
+                  fill="none"
+                ></path>
+                <path d="M66 2L72 8L66 14L60 8Z" fill="#C9A24B"></path>
+                <path
+                  d="M54 8C56 4 59 4 60 8C59 12 56 12 54 8Z"
+                  fill="#C9A24B"
+                ></path>
+                <path
+                  d="M78 8C76 4 73 4 72 8C73 12 76 12 78 8Z"
+                  fill="#C9A24B"
+                ></path>
+              </svg>
+            </div>
+            <div
+              style="
+                margin-top: 6px;
+                font-family: &quot;Pinyon Script&quot;, cursive;
+                font-size: clamp(34px, 8vw, 48px);
+                line-height: 1.2;
+                color: #e3c77e;
+              "
+            >
+              Formal de jardín
+            </div>
+            <div
+              style="
+                max-width: 440px;
+                margin: 12px auto 0;
+                font-size: 21px;
+                line-height: 1.4;
+                color: #e8dec8;
+              "
+            >
+              Nos encantaría que nos acompañaran vistiendo de manera formal y
+              elegante para celebrar este día tan especial.
+            </div>
+          </div>
+        </div>
+        <!-- ===== TARJETA DE VESTUARIO ===== -->
+        <div style="position: relative; z-index: 2; margin: 6px 20px 0">
+          <div
+            style="
+              background-image: linear-gradient(
+                180deg,
+                #f6efe0 0%,
+                #eee4cf 100%
+              );
+              border: 1px solid #c9a24b;
+              border-radius: 20px;
+              padding: 10px;
+              box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+            "
+          >
+            <div
+              style="
+                border: 1px solid rgba(201, 162, 75, 0.5);
+                border-radius: 14px;
+                padding: 40px clamp(12px, 3.5vw, 28px) 42px;
+                color: #1a2a4f;
+              "
+            >
+              <div
+                style="
+                  position: relative;
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: stretch;
+                "
+              >
+                <!-- Caballeros -->
+                <div
+                  style="
+                    flex: 1 1 300px;
+                    min-width: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    padding: 0 8px 0 0;
+                    top:0px;
+                  "
+                >
+                 
+
+                  <div
+                    style="
+                      flex: 1 1 170px;
+                      min-width: 0;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      gap: 14px;
+                      text-align: center;
+                    "
+                  >
+                    <h3
+                      style="
+                        margin: 0;
+                        font-family: Cinzel, serif;
+                        font-weight: 500;
+                        font-size: 20px;
+                        letter-spacing: 0.14em;
+                        color: #1a2a4f;
+                      "
+                    >
+                      CABALLEROS
+                    </h3>
+                    <svg
+                      width="110"
+                      height="10"
+                      viewBox="0 0 110 10"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M2 5H50"
+                        stroke="#C9A24B"
+                        stroke-width="1"
+                        fill="none"
+                      ></path>
+                      <path
+                        d="M60 5H108"
+                        stroke="#C9A24B"
+                        stroke-width="1"
+                        fill="none"
+                      ></path>
+                      <circle cx="55" cy="5" r="2.2" fill="#C9A24B"></circle>
+                    </svg>
+                    <div style="font-size: 20px; line-height: 1.3">
+                      Traje formal.
+                    </div>
+                    <div style="font-size: 17px; color: #5a5845">
+                      Colores recomendados:
+                    </div>
+                    <div
+                      role="img"
+                      aria-label="Colores recomendados para caballeros: verde bosque, verde oliva, verde salvia y azul noche"
+                      style="display: flex; justify-content: center; gap: 8px"
+                    >
+                      <div
+                        title="Verde bosque"
+                        style="
+                          width: 28px;
+                          height: 28px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #1e2d26;
+                        "
+                      ></div>
+                      <div
+                        title="Verde oliva"
+                        style="
+                          width: 28px;
+                          height: 28px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #4b5230;
+                        "
+                      ></div>
+                      <div
+                        title="Verde salvia"
+                        style="
+                          width: 28px;
+                          height: 28px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #8da088;
+                        "
+                      ></div>
+                      <div
+                        title="Azul noche"
+                        style="
+                          width: 28px;
+                          height: 28px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #1b2a4a;
+                        "
+                      ></div>
+                    </div>
+                    <div style="font-size: 18px; line-height: 1.35">
+                      Camisa clara (blanca o marfil) y corbata en tonos sólidos
+                      o discretos.
+                    </div>
+                    <div
+                      style="
+                        margin-top: 10px;
+                        font-family: Cinzel, serif;
+                        font-size: 10.5px;
+                        font-weight: 500;
+                        letter-spacing: 0.16em;
+                        line-height: 1.5;
+                        color: #1a2a4f;
+                      "
+                    >
+                      COLORES QUE AGRADECEMOS EVITAR
+                    </div>
+                    <div
+                      role="img"
+                      aria-label="Colores a evitar para caballeros: azul noche, gris, beige arena y verde bosque"
+                      style="display: flex; justify-content: center; gap: 8px"
+                    >
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 30 30"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14"
+                          fill="#1B2A4A"
+                          stroke="rgba(26,42,79,.25)"
+                        ></circle>
+                        <path
+                          d="M10 10L20 20M20 10L10 20"
+                          stroke="#F4ECDC"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          fill="none"
+                        ></path>
+                      </svg>
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 30 30"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14"
+                          fill="#A3A3A1"
+                          stroke="rgba(26,42,79,.25)"
+                        ></circle>
+                        <path
+                          d="M10 10L20 20M20 10L10 20"
+                          stroke="#F4ECDC"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          fill="none"
+                        ></path>
+                      </svg>
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 30 30"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14"
+                          fill="#B79F78"
+                          stroke="rgba(26,42,79,.25)"
+                        ></circle>
+                        <path
+                          d="M10 10L20 20M20 10L10 20"
+                          stroke="#F4ECDC"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          fill="none"
+                        ></path>
+                      </svg>
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 30 30"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14"
+                          fill="#1E3A2A"
+                          stroke="rgba(26,42,79,.25)"
+                        ></circle>
+                        <path
+                          d="M10 10L20 20M20 10L10 20"
+                          stroke="#F4ECDC"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div
+                      style="font-size: 16px; line-height: 1.35; color: #5a5845"
+                    >
+                      Evitar estos colores ya que serán utilizados por los
+                      novios y personas clave de la celebración.
+                    </div>
+                  </div>
+                  <!--//img-personal!-->
+                   <img src="img/Man-dress.png" style="width:50%;">
+                </div>
+                <!-- rama central -->
+                <svg
+                  class="dc-sprig"
+                  width="34"
+                  height="70"
+                  viewBox="0 0 40 80"
+                  aria-hidden="true"
+                  style="
+                    position: absolute;
+                    left: 50%;
+                    top: 46%;
+                    transform: translate(-50%, -50%);
+                    padding: 8px 0;
+                    background: #f2eada;
+                  "
+                >
+                  <path
+                    d="M20 76 C20 56 20 30 20 6"
+                    fill="none"
+                    stroke="#566A38"
+                    stroke-width="1.6"
+                    stroke-linecap="round"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 62) rotate(-135)"
+                    fill="#5F7441"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 62) rotate(-45)"
+                    fill="#6F8450"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 46) rotate(-135)"
+                    fill="#6F8450"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 46) rotate(-45)"
+                    fill="#5F7441"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 30) rotate(-135)"
+                    fill="#5F7441"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 30) rotate(-45)"
+                    fill="#6F8450"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 16) rotate(-130)"
+                    fill="#6F8450"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 16) rotate(-50)"
+                    fill="#5F7441"
+                  ></path>
+                  <path
+                    d="M0 0 C4 -5 11 -5 16 0 C11 5 4 5 0 0Z"
+                    transform="translate(20 7) rotate(-90)"
+                    fill="#5F7441"
+                  ></path>
+                </svg>
+                <!-- Damas -->
+                <div
+                  class="dc-div"
+                  style="
+                    flex: 1 1 300px;
+                    min-width: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    padding: 0 0 0 8px;
+                    position: sticky;
+  top: 0;
+  align-self: flex-start;
+                  
+                  "
+                >
+                  <div
+                    style="
+                      flex: 1 1 170px;
+                      min-width: 0;
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      gap: 14px;
+                      text-align: center;
+                    "
+                  >
+                    <h3
+                      style="
+                        margin: 0;
+                        font-family: Cinzel, serif;
+                        font-weight: 500;
+                        font-size: 20px;
+                        letter-spacing: 0.14em;
+                        color: #1a2a4f;
+                      "
+                    >
+                      DAMAS
+                    </h3>
+                    <svg
+                      width="110"
+                      height="10"
+                      viewBox="0 0 110 10"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M2 5H50"
+                        stroke="#C9A24B"
+                        stroke-width="1"
+                        fill="none"
+                      ></path>
+                      <path
+                        d="M60 5H108"
+                        stroke="#C9A24B"
+                        stroke-width="1"
+                        fill="none"
+                      ></path>
+                      <circle cx="55" cy="5" r="2.2" fill="#C9A24B"></circle>
+                    </svg>
+                    <div style="font-size: 20px; line-height: 1.3">
+                      Vestido largo o midi elegante.
+                    </div>
+                    <div style="font-size: 17px; color: #5a5845">
+                      Colores recomendados:
+                    </div>
+                    <div
+                      role="img"
+                      aria-label="Colores recomendados para damas: verde bosque, verde salvia, azul noche, dorado mostaza y champán"
+                      style="display: flex; justify-content: center; gap: 6px"
+                    >
+                      <div
+                        title="Verde bosque"
+                        style="
+                          width: 26px;
+                          height: 26px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #1e2d26;
+                        "
+                      ></div>
+                      <div
+                        title="Verde salvia"
+                        style="
+                          width: 26px;
+                          height: 26px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #8da088;
+                        "
+                      ></div>
+                      <div
+                        title="Azul noche"
+                        style="
+                          width: 26px;
+                          height: 26px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #1b2a4a;
+                        "
+                      ></div>
+                      <div
+                        title="Dorado mostaza"
+                        style="
+                          width: 26px;
+                          height: 26px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #b8892b;
+                        "
+                      ></div>
+                      <div
+                        title="Champán"
+                        style="
+                          width: 26px;
+                          height: 26px;
+                          border-radius: 50%;
+                          border: 1px solid rgba(26, 42, 79, 0.25);
+                          background: #d6c6a9;
+                        "
+                      ></div>
+                    </div>
+                    <div style="font-size: 18px; line-height: 1.35">
+                      Tejidos livianos y fluidos en cortes femeninos y
+                      sofisticados.
+                    </div>
+                    <div
+                      style="
+                        margin-top: 10px;
+                        font-family: Cinzel, serif;
+                        font-size: 10.5px;
+                        font-weight: 500;
+                        letter-spacing: 0.16em;
+                        line-height: 1.5;
+                        color: #1a2a4f;
+                      "
+                    >
+                      COLORES QUE AGRADECEMOS EVITAR
+                    </div>
+                    <div
+                      role="img"
+                      aria-label="Colores a evitar para damas: rojo vino y champán"
+                      style="display: flex; justify-content: center; gap: 8px"
+                    >
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 30 30"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14"
+                          fill="#8B1A1F"
+                          stroke="rgba(26,42,79,.25)"
+                        ></circle>
+                        <path
+                          d="M10 10L20 20M20 10L10 20"
+                          stroke="#F4ECDC"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          fill="none"
+                        ></path>
+                      </svg>
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 30 30"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          cx="15"
+                          cy="15"
+                          r="14"
+                          fill="#D6C6A9"
+                          stroke="rgba(26,42,79,.25)"
+                        ></circle>
+                        <path
+                          d="M10 10L20 20M20 10L10 20"
+                          stroke="#F4ECDC"
+                          stroke-width="1.6"
+                          stroke-linecap="round"
+                          fill="none"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div
+                      style="font-size: 16px; line-height: 1.35; color: #5a5845"
+                    >
+                      Evitar estos colores ya que no hacen parte de nuestra
+                      paleta y queremos mantener la armonía visual.
+                    </div>
+                    
+                  </div>
+                 <img src="img/woman-dress.png" style="width:60%;">
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ===== AGRADECEMOS TU APOYO ===== -->
+        <div style="position: relative; padding: 60px 28px 120px">
+          <svg
+            width="120"
+            height="180"
+            viewBox="0 0 200 300"
+            aria-hidden="true"
+            style="
+              position: absolute;
+              left: -26px;
+              bottom: -12px;
+              opacity: 0.95;
+            "
+          >
+            <path
+              d="M20 290 C40 200 90 140 150 30"
+              fill="none"
+              stroke="#566A38"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-115) scale(1.15)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-15) scale(1.15)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-112) scale(1.05)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-12) scale(1.05)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-110) scale(.95)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-10) scale(.95)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-108) scale(.85)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-8) scale(.85)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-105) scale(.75)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-5) scale(.75)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(150 30) rotate(-62) scale(.8)"
+              fill="#4C6030"
+            ></path>
+          </svg>
+          <svg
+            width="120"
+            height="180"
+            viewBox="0 0 200 300"
+            aria-hidden="true"
+            style="
+              position: absolute;
+              right: -26px;
+              bottom: -12px;
+              opacity: 0.95;
+              transform: scaleX(-1);
+            "
+          >
+            <path
+              d="M20 290 C40 200 90 140 150 30"
+              fill="none"
+              stroke="#566A38"
+              stroke-width="2.2"
+              stroke-linecap="round"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-115) scale(1.15)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(31 251) rotate(-15) scale(1.15)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-112) scale(1.05)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(52 205) rotate(-12) scale(1.05)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-110) scale(.95)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(75 160) rotate(-10) scale(.95)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-108) scale(.85)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(100 112) rotate(-8) scale(.85)"
+              fill="#4C6030"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-105) scale(.75)"
+              fill="#6F8450"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(130 66) rotate(-5) scale(.75)"
+              fill="#5F7441"
+            ></path>
+            <path
+              d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"
+              transform="translate(150 30) rotate(-62) scale(.8)"
+              fill="#4C6030"
+            ></path>
+          </svg>
+          <div
+            style="
+              position: relative;
+              z-index: 2;
+              max-width: 520px;
+              margin: 0 auto;
+              padding: 38px 28px 32px;
+              border: 1px solid rgba(201, 162, 75, 0.5);
+              border-radius: 16px;
+              background: rgba(255, 255, 255, 0.045);
+              text-align: center;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                top: -8px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 0 10px;
+                background: #0a1634;
+              "
+            >
+              <svg
+                width="132"
+                height="16"
+                viewBox="0 0 132 16"
+                aria-hidden="true"
+                style="display: block"
+              >
+                <path
+                  d="M4 8H52"
+                  stroke="#C9A24B"
+                  stroke-width="1"
+                  fill="none"
+                ></path>
+                <path
+                  d="M80 8H128"
+                  stroke="#C9A24B"
+                  stroke-width="1"
+                  fill="none"
+                ></path>
+                <path d="M66 2L72 8L66 14L60 8Z" fill="#C9A24B"></path>
+                <path
+                  d="M54 8C56 4 59 4 60 8C59 12 56 12 54 8Z"
+                  fill="#C9A24B"
+                ></path>
+                <path
+                  d="M78 8C76 4 73 4 72 8C73 12 76 12 78 8Z"
+                  fill="#C9A24B"
+                ></path>
+              </svg>
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+              "
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#C9A24B"
+                stroke-width="1.6"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 20.5s-7.5-4.6-9.2-9.3C1.6 7.8 3.7 5 6.6 5c1.9 0 3.5 1 5.4 3 1.9-2 3.5-3 5.4-3 2.9 0 5 2.8 3.8 6.2C19.5 15.9 12 20.5 12 20.5z"
+                ></path>
+              </svg>
+              <h2
+                style="
+                  margin: 0;
+                  font-family: Cinzel, serif;
+                  font-weight: 500;
+                  font-size: 19px;
+                  letter-spacing: 0.16em;
+                  color: #f4ecdc;
+                "
+              >
+                AGRADECEMOS TU APOYO
+              </h2>
+            </div>
+            <div
+              style="
+                margin-top: 14px;
+                font-size: 20px;
+                line-height: 1.45;
+                color: #e8dec8;
+              "
+            >
+              Tu presencia es nuestro mejor regalo. Gracias por ser parte de
+              este día tan especial y por ayudarnos a crear un ambiente elegante
+              y armonioso.
+            </div>
+          </div>
+        </div>
+        <!-- ===== FRASE FINAL ===== -->
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px 18px;
+            padding: 22px 24px 26px;
+            border-top: 1px solid rgba(201, 162, 75, 0.4);
+            background: rgba(10, 22, 52, 0.6);
+            font-family: Cinzel, serif;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            color: #e8dec8;
+          "
+        >
+          <span>UN JARDÍN QUE CRECE</span>
+          <span aria-hidden="true" style="color: #c9a24b">|</span>
+          <span>UNA FAMILIA QUE ELEGIMOS</span>
+          <span aria-hidden="true" style="color: #c9a24b">|</span>
+          <span>UN HOGAR QUE CONSTRUIMOS</span>
+        </div>
+      </div>
+    </div>
+<script>
+//menu
+ const menuBtn = document.getElementById('menu-btn');
+const navMenu = document.getElementById('nav-menu');
+const menuIcon = document.getElementById('menu-icon');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function openMenu() {
+    navMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+    navMenu.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-xmark');
+}
+
+function closeMenu() {
+    navMenu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    navMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+}
+
+menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.contains('opacity-100');
+    isOpen ? closeMenu() : openMenu();
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        closeMenu();
+    }
+});
+        //menu
+         //Music
+
+   // Seleccionamos los elementos del HTML
+    const musicBtn = document.getElementById('music-btn');
+    const bgMusic = document.getElementById('bg-music');
+    const musicIcon = document.getElementById('music-icon');
+
+    // Agregamos la acción al hacer clic en el botón
+    musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            // Cambiamos el ícono de FontAwesome a "pausa"
+            musicIcon.classList.remove('fa-music');
+            musicIcon.classList.add('fa-pause');
+        } else {
+            bgMusic.pause();
+            // Volvemos al ícono original
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-music');
+        }
+    });
+   //music
+  </script>
+  </body>
+</html>

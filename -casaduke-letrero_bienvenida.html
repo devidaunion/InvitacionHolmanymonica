@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letrero de Bienvenida - Boda</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de colores solicitada */
+            --color-bg: #F6F4EB;
+            --color-green: #1B2A1E;
+            --color-gold: #967E51;
+            
+            /* Tipografías */
+            --font-cinzel: 'Cinzel', serif;
+            --font-cormorant: 'Cormorant Garamond', serif;
+            --font-pinyon: 'Pinyon Script', cursive;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            /* Fondo exterior oscuro para contrastar con el póster (opcional) */
+            background-color: #2a2a2a; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor principal del póster */
+        .poster-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 2 / 3; /* Proporción estándar de póster */
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            color: var(--color-green);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: clamp(60px, 10vw, 100px) clamp(20px, 5vw, 60px);
+            box-sizing: border-box;
+        }
+
+        /* -------------------------------------------
+           ESTILOS DE PLACEHOLDERS DE IMÁGENES
+           ------------------------------------------- */
+        .img-placeholder {
+            background-color: rgba(150, 126, 81, 0.1);
+            border: 1px dashed var(--color-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-family: sans-serif;
+            font-size: clamp(10px, 1.5vw, 14px);
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Elementos Absolutos (Bordes y Flores) */
+        .border-frame {
+            position: absolute;
+            inset: clamp(15px, 3vw, 25px);
+            z-index: 1;
+            pointer-events: none; /* Permite hacer clic a través de él */
+        }
+
+        .floral-tl {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: clamp(150px, 35%, 300px);
+            height: clamp(200px, 40%, 400px);
+            z-index: 2;
+        }
+
+        .floral-tr {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: clamp(150px, 35%, 300px);
+            height: clamp(200px, 40%, 400px);
+            z-index: 2;
+        }
+
+        .floral-bl {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: clamp(180px, 45%, 400px);
+            height: clamp(200px, 35%, 350px);
+            z-index: 2;
+        }
+
+        .floral-br {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: clamp(180px, 45%, 400px);
+            height: clamp(200px, 35%, 350px);
+            z-index: 2;
+        }
+
+        /* Elementos en línea (Logo, Separadores, Casa) */
+        .logo-hm {
+            width: clamp(100px, 20vw, 180px);
+            height: clamp(100px, 20vw, 180px);
+            border-radius: 50%;
+            margin-bottom: clamp(15px, 3vw, 25px);
+            z-index: 3;
+        }
+
+        .sep-dot {
+            width: clamp(60px, 15vw, 100px);
+            height: 15px;
+            margin: clamp(10px, 2vw, 15px) 0;
+            z-index: 3;
+            border-radius: 10px;
+        }
+
+        .sep-leaves {
+            width: clamp(100px, 20vw, 150px);
+            height: 35px;
+            margin: clamp(15px, 3vw, 25px) 0;
+            z-index: 3;
+        }
+
+        .house-img {
+            width: 80%;
+            max-width: 480px;
+            height: clamp(120px, 25vw, 220px);
+            margin: clamp(10px, 2vw, 20px) 0;
+            z-index: 3;
+        }
+
+        .icon-heart {
+            width: 25px;
+            height: 25px;
+            margin: clamp(15px, 3vw, 25px) 0;
+            z-index: 3;
+            border-radius: 50%;
+        }
+
+        /* -------------------------------------------
+           ESTILOS DE TEXTO (Dinámicos y Responsivos)
+           ------------------------------------------- */
+        .content-wrapper {
+            position: relative;
+            z-index: 3; /* Asegura que el texto esté por encima del borde y fondo */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            flex: 1;
+        }
+
+        .font-cinzel { font-family: var(--font-cinzel); }
+        .font-cormorant { font-family: var(--font-cormorant); }
+        .font-pinyon { font-family: var(--font-pinyon); }
+        .text-gold { color: var(--color-gold); }
+
+        .names {
+            font-size: clamp(16px, 3.5vw, 24px);
+            letter-spacing: 0.35em;
+            font-weight: 500;
+            margin-bottom: clamp(8px, 1.5vw, 12px);
+        }
+
+        .date-location {
+            font-size: clamp(9px, 1.8vw, 13px);
+            letter-spacing: 0.3em;
+            font-weight: 600;
+        }
+
+        .welcome-text {
+            font-size: clamp(18px, 3.5vw, 28px);
+            letter-spacing: 0.25em;
+            margin-top: clamp(20px, 4vw, 35px);
+            margin-bottom: 5px;
+        }
+
+        .main-title {
+            font-size: clamp(48px, 10vw, 95px);
+            font-weight: 400;
+            line-height: 1.1;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .subtitle {
+            font-size: clamp(11px, 2vw, 15px);
+            letter-spacing: 0.3em;
+            font-weight: 600;
+            margin-top: clamp(5px, 1vw, 10px);
+        }
+
+        .story-text-1 {
+            font-size: clamp(16px, 3vw, 22px);
+            margin-top: clamp(15px, 3vw, 25px);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .story-script {
+            font-size: clamp(34px, 7vw, 65px);
+            line-height: 1.1;
+            margin: clamp(5px, 1vw, 10px) 0;
+        }
+
+        .story-text-2 {
+            font-size: clamp(16px, 3vw, 22px);
+            margin-top: 0;
+            font-weight: 500;
+        }
+
+        .footer-text {
+            font-size: clamp(10px, 1.8vw, 14px);
+            letter-spacing: 0.25em;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="poster-container">
+        
+        <!-- ==========================================
+             PLACEHOLDERS ABSOLUTOS (FONDO/BORDES/FLORES)
+             Para usar tus imágenes, añade background-image en el atributo style
+             Ejemplo: style="background-image: url('tu-imagen-borde.jpg'); border: none;"
+        =========================================== -->
+        <div class="img-placeholder border-frame" style="">
+            <span style="opacity: 0.5;">IMG: Borde / Marco JPG</span>
+        </div>
+        
+        <div class="img-placeholder floral-tl" style="">
+            IMG: Flores Sup. Izq.
+        </div>
+        
+        <div class="img-placeholder floral-tr" style="">
+            IMG: Flores Sup. Der.
+        </div>
+        
+        <div class="img-placeholder floral-bl" style="">
+            IMG: Flores Inf. Izq.
+        </div>
+        
+        <div class="img-placeholder floral-br" style="">
+            IMG: Flores Inf. Der.
+        </div>
+
+        <!-- ==========================================
+             CONTENIDO PRINCIPAL
+        =========================================== -->
+        <div class="content-wrapper">
+            
+            <!-- Logo Placeholder -->
+            <div class="img-placeholder logo-hm" style="">
+                IMG: Logo HM
+            </div>
+
+            <!-- Nombres y Fecha -->
+            <div class="font-cinzel text-gold names">
+                HOLMAN & MÓNICA
+            </div>
+            <div class="font-cinzel date-location">
+                16 . 01 . 2027 &nbsp;&bull;&nbsp; CASA DUQUE
+            </div>
+
+            <!-- Separador Punto 1 Placeholder -->
+            <div class="img-placeholder sep-dot" style="">
+                IMG: Punto/Línea
+            </div>
+
+            <!-- Bienvenida y Título Principal -->
+            <div class="font-cormorant welcome-text">
+                BIENVENIDOS A
+            </div>
+            <h1 class="font-cormorant main-title">
+                CASA DUQUE
+            </h1>
+
+            <!-- Separador Hojitas Placeholder -->
+            <div class="img-placeholder sep-leaves" style="">
+                IMG: Separador Hojitas
+            </div>
+
+            <!-- Ilustración Casa Placeholder -->
+            <div class="img-placeholder house-img" style="">
+                IMG: Ilustración Casa
+            </div>
+
+            <!-- Subtítulo de la casa -->
+            <div class="font-cinzel subtitle">
+                EL HOGAR QUE CONSTRUIMOS
+            </div>
+
+            <!-- Separador Punto 2 Placeholder -->
+            <div class="img-placeholder sep-dot" style="">
+                IMG: Punto/Línea
+            </div>
+
+            <!-- Textos de Historia / Celebración -->
+            <p class="font-cormorant story-text-1">
+                Hoy comienza nuestra historia como esposos,
+            </p>
+            <div class="font-pinyon text-gold story-script">
+                y qué mejor lugar para celebrarlo
+            </div>
+            <p class="font-cormorant story-text-2">
+                que el hogar que construimos juntos.
+            </p>
+
+            <!-- Icono Corazón Placeholder -->
+            <div class="img-placeholder icon-heart" style="">
+                &hearts;
+            </div>
+
+            <!-- Footer Agradecimiento -->
+            <div class="font-cinzel footer-text">
+                GRACIAS POR SER PARTE DE<br>ESTE DÍA INOLVIDABLE
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

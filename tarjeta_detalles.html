@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Detalles - Boda</title>
+    
+    <!-- Google Fonts: Cinzel (Elegante/Mayúsculas) y Cormorant Garamond (Clásica/Serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Configuración de Tailwind para Colores y Fuentes personalizadas -->
+   
+
+    <style>
+        :root {
+            /* Paleta de colores basada en la solicitud */
+            --color-bg: #F9F6F0;       /* Crema claro */
+            --color-green: #1A2A3A;    /* Verde muy oscuro / casi negro azulado */
+            --color-gold: #C9A24B;     /* Dorado */
+            --color-gold-light: rgba(201, 162, 75, 0.3); /* Dorado transparente para bordes y separadores */
+            
+            /* Tipografías */
+            --font-cinzel: 'Cinzel', serif;
+            --font-cormorant: 'Cormorant Garamond', serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #222; /* Fondo oscuro exterior para resaltar la tarjeta */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: var(--font-cormorant);
+            color: var(--color-green);
+        }
+
+        /* Contenedor principal de la tarjeta */
+        .card-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--color-bg);
+            margin: 40px 20px;
+            padding: clamp(60px, 8vw, 100px) clamp(20px, 5vw, 60px);
+            box-sizing: border-box;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        /* -------------------------------------------
+           PLACEHOLDERS (Imágenes e Íconos)
+           ------------------------------------------- */
+        .placeholder {
+       
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-family: sans-serif;
+            font-size: 11px;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 5px;
+            z-index: 2;
+        }
+
+        /* Elementos Absolutos (Borde y Flores) */
+        .border-frame {
+            position: absolute;
+            inset: clamp(15px, 3vw, 25px);
+            z-index: 1;
+            pointer-events: none;
+            border-width: 1px;
+            opacity: 0.6;
+        }
+
+        .floral-corner {
+            position: absolute;
+            width: clamp(120px, 30%, 250px);
+            height: clamp(150px, 35%, 320px);
+            z-index: 2;
+        }
+        .floral-tl { top: 0; left: 0; }
+        .floral-tr { top: 0; right: 0; }
+        .floral-bl { bottom: 0; left: 0; width: clamp(150px, 35%, 300px); height: clamp(150px, 30%, 280px); }
+        .floral-br { bottom: 0; right: 0; width: clamp(150px, 35%, 300px); height: clamp(150px, 30%, 280px); }
+
+        /* Íconos específicos */
+        .icon-monogram { width: clamp(100px, 15vw, 160px); height: clamp(100px, 15vw, 160px); margin-bottom: 25px; }
+        .icon-separator { width: 80px; height: 20px; margin: 15px 0; }
+        .icon-grid { width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 20px auto; }
+        .icon-grid-rect { width: 100px; height: 60px; margin: 0 auto 20px auto; }
+        .icon-heart { width: 20px; height: 20px; border-radius: 50%; margin: 25px auto 15px auto; }
+        .icon-sprig { width: 40px; height: 20px; }
+
+        /* -------------------------------------------
+           TIPOGRAFÍAS Y ESTILOS DE TEXTO
+           ------------------------------------------- */
+        .content-wrapper {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .font-cinzel { font-family: var(--font-cinzel); }
+        .text-gold { color: var(--color-gold); }
+
+        .names {
+            font-size: clamp(16px, 2.5vw, 20px);
+            letter-spacing: 0.35em;
+            margin-bottom: 10px;
+        }
+
+        .date-location {
+            font-size: clamp(10px, 1.5vw, 12px);
+            letter-spacing: 0.3em;
+            font-weight: 600;
+        }
+
+        .title-small {
+            font-size: clamp(14px, 2vw, 18px);
+            letter-spacing: 0.3em;
+            margin-top: 35px;
+            font-weight: 500;
+        }
+
+        .title-large {
+            font-size: clamp(40px, 8vw, 65px);
+            letter-spacing: 0.15em;
+            margin: 5px 0 10px 0;
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .subtitle {
+            font-size: clamp(10px, 1.5vw, 13px);
+            letter-spacing: 0.25em;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 80%;
+        }
+
+        /* -------------------------------------------
+           GRIDS (Cuadrículas)
+           ------------------------------------------- */
+        .grid-container {
+            width: 100%;
+            display: grid;
+            position: relative;
+        }
+
+        .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 40px; }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 40px; }
+
+        .grid-col {
+            position: relative;
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Bordes separadores verticales para pantallas grandes */
+        @media (min-width: 769px) {
+            .grid-col:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 10%;
+                height: 80%;
+                width: 1px;
+                background-color: var(--color-gold-light);
+            }
+        }
+
+        .grid-title {
+            font-size: 15px;
+            letter-spacing: 0.25em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .grid-label {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin: 10px 0 5px 0;
+        }
+
+        .grid-value {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .grid-text {
+            font-size: 17px;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .grid-text-small {
+            font-size: 15px;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Línea separadora horizontal completa */
+        .full-divider {
+            width: 100%;
+            height: 1px;
+            background-color: var(--color-gold-light);
+            margin: 10px 0 35px 0;
+        }
+
+        .section-title {
+            font-size: 16px;
+            letter-spacing: 0.3em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .final-message {
+            font-size: clamp(18px, 3vw, 24px);
+            margin-top: 20px;
+            line-height: 1.4;
+            max-width: 85%;
+        }
+
+        .footer-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-text {
+            font-size: clamp(11px, 1.5vw, 14px);
+            letter-spacing: 0.3em;
+            font-weight: 600;
+        }
+         .imges-buton{
+            width: 229px;
+         }
+        /* -------------------------------------------
+           RESPONSIVE (Móvil y Tablets)
+           ------------------------------------------- */
+        @media (max-width: 768px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px 20px;
+            }
+            /* Separadores horizontales para móvil en la de 3 columnas */
+            .grid-3 .grid-col:not(:last-child) {
+                border-bottom: 1px solid var(--color-gold-light);
+                padding-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            .grid-4 .grid-col:not(:last-child) {
+                border-bottom: 1px solid var(--color-gold-light);
+                padding-bottom: 40px;
+            }
+        }
+       
+        .whitdh-espacio>img{
+            width:96px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        
+        <!-- PLACEHOLDERS ABSOLUTOS -->
+         <!--music-->
+           
+            <button id="music-btn" class="fixed top-4 right-4 z-[9999] w-12 h-12 rounded-full border border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-navy transition-colors duration-300">
+                <i id="music-icon" class="fas fa-music"></i>
+            </button>
+            <audio id="bg-music" loop>
+                
+                <source src="music/Musics_01.mp3" type="audio/mpeg">
+                Tu navegador no soporta la etiqueta de audio.
+            </audio>
+            <!--music-->
+        <!--menu-->
+        <!-- Contenedor relativo del menú -->
+<div class="relative inline-block  fixed inset-0 items-center  justify-center ">
+    
+    <!-- Botón del menú -->
+    <button id="menu-btn" aria-label="Abrir Menú"  class="items-center gap-3 px-5 py-2.5 rounded-full border border-[#D4AF37]/40 bg-black/60 backdrop-blur-md text-[#D4AF37] hover:bg-[#D4AF37] hosver:text-black transition-all duration-300 uppercase tracking-widest text-xs font-light shadow-lg ">
+        <span class="font-medium">Menú</span>
+        <i id="menu-icon" class="fas fa-bars text-sm transition-transform duration-300"></i>
+    </button>
+
+    <!-- Menú Desplegable (Alineado a la izquierda y adaptativo a la pantalla) -->
+    <div id="nav-menu"  style="left: -78px;" class="absolute z-50 text-center  mt-3 w-64 max-w-[calc(100vw-2rem)] bg-neutral-950/95 border border-[#D4AF37]/30 backdrop-blur-xl rounded-2xl shadow-2xl p-6 transition-all duration-300 ease-in-out opacity-0 scale-95 pointer-events-none">
+        <nav class="flex flex-col gap-3">
+            <a href="index.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Inicio</a>
+            <a href="sugerir_cancion.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Sugerir Camción</a>
+            <a href="dress_code.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Tips y notas</a>
+            <a href="tarjeta_detalles.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2 border-b border-neutral-800/80">Dress code</a>
+            <a href="wedding_album.html" class="nav-link text-xs uppercase tracking-[0.2em] text-neutral-300 hover:text-[#D4AF37] hover:translate-x-1.5 transition-all duration-300 py-2">Comartir fotos o videos</a>
+        </nav>
+    </div>
+
+</div>
+            <!--menu-->
+        <div class="placeholder floral-corner floral-tl "><img src="img/Recursos-vectores-flor-top-left.png"></div>
+        <div class="placeholder floral-corner floral-tr"><img  src="img/Recursos-vectores-flor-top-right.png"></div>
+        <div class="placeholder floral-corner floral-bl " style="left: -7%;
+  text-align: left;
+  padding-left: 0px;"><img class="imges-buton" src="img/Recursos-vectores-flor-botton-left.png"></div>
+        <div  class="placeholder floral-corner floral-br" style="right: -7%;
+  text-align: right;
+  padding-left: 0px;"><img class="imges-buton" src="img/Recursos-vectores-flor-botton-rigth.png"></div>
+
+        <!-- CONTENIDO CENTRAL -->
+        <div class="content-wrapper">
+            
+            <!-- Monograma -->
+            <div class="mb-2 drop-shadow-lg">
+              <img  style="width:160px;" src="img/Logo.png"> 
+        </div>
+            <!-- Nombres y Fecha -->
+            <div class="font-cinzel names text-gold">HOLMAN & MÓNICA</div>
+            <div class="font-cinzel date-location text-gold">
+                16 . 01 . 2027 &nbsp;&bull;&nbsp; CASA DUQUE
+            </div>
+            <div class="placeholder icon-separator" style="width: 60px; height: 10px; margin-top: 20px;"><svg width="300" height="20" viewBox="0 0 300 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Línea izquierda -->
+                <line x1="10" y1="10" x2="135" y2="10" stroke="#C39B53" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Círculo central -->
+                <circle cx="150" cy="10" r="5" fill="#C39B53" />
+                <!-- Línea derecha -->
+                <line x1="165" y1="10" x2="290" y2="10" stroke="#C39B53" stroke-width="1.5" stroke-linecap="round"/>
+                </svg></div>
+
+            <!-- Títulos Principales -->
+            <div class="font-cinzel title-small">TARJETA DE</div>
+            <h1 class="font-cinzel title-large">DETALLES</h1>
+            
+         <!--figurita -->
+         <div style="text-align: center; margin: 30px 0;">
+  <svg viewBox="0 0 500 40" width="100%" height="auto" style="max-width: 400px;" xmlns="http://www.w3.org/2000/svg">
+ 
+    <line x1="20" y1="20" x2="190" y2="20" stroke="#9e946a" stroke-width="1.2" stroke-linecap="round" />
+
+    <line x1="310" y1="20" x2="480" y2="20" stroke="#9e946a" stroke-width="1.2" stroke-linecap="round" />
+    
+
+    <g fill="#9e946a" stroke="#9e946a">
+  
+      <path d="M 190 20 Q 250 20 310 20" fill="none" stroke-width="1.2" />
+      
+     
+      <path d="M 220 20 C 215 10, 205 8, 200 12 C 205 18, 212 20, 220 20 Z" />
+      <path d="M 235 20 C 230 30, 220 32, 215 28 C 220 22, 228 20, 235 20 Z" />
+      
+
+      <path d="M 265 20 C 270 10, 280 8, 285 12 C 280 18, 273 20, 265 20 Z" />
+      <path d="M 250 20 C 255 30, 265 32, 270 28 C 265 22, 258 20, 250 20 Z" />
+
+
+      <path d="M 245 20 C 248 8, 253 6, 256 10 C 253 16, 248 20, 245 20 Z" />
+    </g>
+  </svg>
+</div>      <!--figurita -->
+
+            <div class="font-cinzel subtitle">
+                TODOS LOS DETALLES PARA DISFRUTAR<br>DE ESTE DÍA TAN ESPECIAL.
+            </div>
+
+            <!-- GRID 1: 3 Columnas -->
+            <div class="grid-container grid-3">
+                <!-- Columna 1: Hora -->
+                <div class="grid-col">
+                    <div class="placeholder whitdh-espacio icon-grid"><img src="img/relock-boda-hm.png"></div>
+                    <div class="font-cinzel grid-title">HORA</div>
+                    <div class="font-cinzel grid-label">LLEGADA DE INVITADOS</div>
+                    <div class="grid-value">3:00 P.M.</div>
+                    <!--figural-->
+                    <div style="text-align: center; margin: 30px 0;">
+  <svg viewBox="0 0 500 40" width="100%" height="auto" style="max-width: 400px;" xmlns="http://www.w3.org/2000/svg">
+    <!-- Línea izquierda -->
+    <line x1="20" y1="20" x2="190" y2="20" stroke="#9e946a" stroke-width="1.2" stroke-linecap="round" />
+    
+    <!-- Línea derecha -->
+    <line x1="310" y1="20" x2="480" y2="20" stroke="#9e946a" stroke-width="1.2" stroke-linecap="round" />
+    
+    <!-- Ramita y hojas centrales -->
+    <g fill="#9e946a" stroke="#9e946a">
+      <!-- Tallo central -->
+      <path d="M 190 20 Q 250 20 310 20" fill="none" stroke-width="1.2" />
+      
+      <!-- Hojas lado izquierdo -->
+      <path d="M 220 20 C 215 10, 205 8, 200 12 C 205 18, 212 20, 220 20 Z" />
+      <path d="M 235 20 C 230 30, 220 32, 215 28 C 220 22, 228 20, 235 20 Z" />
+      
+      <!-- Hojas lado derecho -->
+      <path d="M 265 20 C 270 10, 280 8, 285 12 C 280 18, 273 20, 265 20 Z" />
+      <path d="M 250 20 C 255 30, 265 32, 270 28 C 265 22, 258 20, 250 20 Z" />
+
+      <!-- Detalle superior central -->
+      <path d="M 245 20 C 248 8, 253 6, 256 10 C 253 16, 248 20, 245 20 Z" />
+    </g>
+  </svg>
+</div>
+                    <!--figural-->
+                    <div class="font-cinzel grid-label" style="margin-top: 15px;">CEREMONIA</div>
+                    <div class="grid-value">4:00 P.M.</div>
+                </div>
+
+                <!-- Columna 2: Lugar -->
+                <div class="grid-col">
+                    <div class="placeholder whitdh-espacio icon-grid-rect"><img src="img/Parqueadero-vehiculo-boda.png"></div>
+                    <div class="font-cinzel grid-title">LUGAR</div>
+                    <div class="grid-text" style="font-size: 20px; margin-bottom: 8px;">CASA DUQUE</div>
+                    <div class="font-cinzel grid-label" style="line-height: 1.6; letter-spacing: 0.2em;">SUBACHOQUE,<br>CUNDINAMARCA</div>
+                </div>
+
+                <!-- Columna 3: Ubicación -->
+                <div class="grid-col">
+                    <div class="placeholder  whitdh-espacio icon-grid"><img src="img/Location-invitacion-HM.png"></div>
+                    <div class="font-cinzel grid-title">UBICACIÓN</div>
+                    <div class="grid-text" style="font-size: 20px; margin-bottom: 8px;">CASA DUQUE</div>
+                    <div class="font-cinzel grid-label" style="line-height: 1.6; letter-spacing: 0.2em;">SUBACHOQUE,<br>CUNDINAMARCA</div>
+                </div>
+            </div>
+
+            <!-- Separador Completo -->
+            <div class="full-divider"></div>
+
+            <!-- Sección Recomendaciones -->
+            <div class="font-cinzel section-title">RECOMENDACIONES</div>
+           <!--FigurasDos-->
+           <div style="text-align: center; margin: 30px 0;">
+  <svg viewBox="0 0 500 40" width="100%" height="auto" style="max-width: 400px;" xmlns="http://www.w3.org/2000/svg">
+    <!-- Línea izquierda -->
+    <line x1="20" y1="20" x2="190" y2="20" stroke="#9e946a" stroke-width="1.2" stroke-linecap="round" />
+    
+    <!-- Línea derecha -->
+    <line x1="310" y1="20" x2="480" y2="20" stroke="#9e946a" stroke-width="1.2" stroke-linecap="round" />
+    
+    <!-- Ramita y hojas centrales -->
+    <g fill="#9e946a" stroke="#9e946a">
+      <!-- Tallo central -->
+      <path d="M 190 20 Q 250 20 310 20" fill="none" stroke-width="1.2" />
+      
+      <!-- Hojas lado izquierdo -->
+      <path d="M 220 20 C 215 10, 205 8, 200 12 C 205 18, 212 20, 220 20 Z" />
+      <path d="M 235 20 C 230 30, 220 32, 215 28 C 220 22, 228 20, 235 20 Z" />
+      
+      <!-- Hojas lado derecho -->
+      <path d="M 265 20 C 270 10, 280 8, 285 12 C 280 18, 273 20, 265 20 Z" />
+      <path d="M 250 20 C 255 30, 265 32, 270 28 C 265 22, 258 20, 250 20 Z" />
+
+      <!-- Detalle superior central -->
+      <path d="M 245 20 C 248 8, 253 6, 256 10 C 253 16, 248 20, 245 20 Z" />
+    </g>
+  </svg>
+</div>
+           <!--FigurasDos--->
+
+            <!-- GRID 2: 4 Columnas -->
+            <div class="grid-container grid-4">
+                <!-- Columna 1 -->
+                <div class="grid-col">
+                    <div class="placeholder icon-grid whitdh-espacio"   style="border-radius: 0;"><img src="img/Clima-ropa.png"></div>
+                    <div class="font-cinzel grid-title text-gold" style="font-size: 13px;">CLIMA FRÍO</div>
+                    <p class="grid-text-small">Te recomendamos<br>llevar abrigo.</p>
+                </div>
+
+                <!-- Columna 2 -->
+                <div class="grid-col">
+                    <div class="placeholder icon-grid whitdh-espacio"   style="border-radius: 0; width: 70px;"><img src="img/Parqueadero-vehiculo-boda.png"></div>
+                    <div class="font-cinzel grid-title text-gold" style="font-size: 13px;">PARQUEADERO</div>
+                    <p class="grid-text-small">Habrá parqueadero<br>disponible en<br>la finca.</p>
+                </div>
+
+                <!-- Columna 3 -->
+                <div class="grid-col">
+                    <div class="placeholder icon-grid whitdh-espacio"   style="border-radius: 0; width: 40px; height: 70px;"><img src="img/muerdago-boda.png"></div>
+                    <div class="font-cinzel grid-title text-gold" style="font-size: 13px;">SOLO ADULTOS</div>
+                    <p class="grid-text-small">Agradecemos tu<br>comprensión: nuestra<br>boda será solo para<br>adultos.</p>
+                </div>
+
+                <!-- Columna 4 -->
+                <div class="grid-col">
+                    <div class="placeholder icon-grid whitdh-espacio"   style="border-radius: 0; width: 50px;"><img src="img/actituud-boda.png"></div>
+                    <div class="font-cinzel grid-title text-gold" style="font-size: 13px; line-height: 1.4;">LLEVA TODA<br>LA ACTITUD</div>
+                    <p class="grid-text-small">Ven con tu mejor energía<br>para celebrar, bailar y<br>crear recuerdos<br>inolvidables.</p>
+                </div>
+            </div>
+
+            <!-- Mensaje Final -->
+            <p class="final-message">
+                Un día para celebrar el amor,<br>el inicio de nuestro hogar y todo lo que está por venir.
+            </p>
+
+            <div class="placeholder icon-heart">♥</div>
+
+            <div class="footer-line font-cinzel text-gold">
+                <!--muerdagos-->
+                <div style="text-align: center; margin: 30px 0;">
+  <svg viewBox="0 0 220 140" width="100%" height="auto" style="max-width: 60px;" xmlns="http://www.w3.org/2000/svg">
+    <g fill="#9e946a" stroke="#9e946a" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Tallo principal diagonal -->
+      <path d="M 175 115 Q 120 75 55 45" fill="none" stroke-width="1.2" />
+      
+      <!-- Hoja superior izquierda -->
+      <path d="M 105 72 C 90 55, 65 42, 48 45 C 55 60, 80 80, 105 72 Z" />
+      
+      <!-- Hoja inferior -->
+      <path d="M 112 92 C 100 112, 75 122, 58 115 C 72 102, 95 90, 112 92 Z" />
+      
+      <!-- Hoja superior derecha -->
+      <path d="M 122 68 C 128 48, 122 28, 110 24 C 112 44, 118 58, 122 68 Z" />
+      
+      <!-- Hoja inferior derecha -->
+      <path d="M 140 98 C 158 92, 162 75, 150 72 C 138 78, 132 90, 140 98 Z" />
+    </g>
+  </svg>
+</div> 
+                <div class="footer-text">EL HOGAR QUE CONSTRUIMOS</div>
+                <!--Muerdagos-->
+            
+                <div style="text-align: center; margin: 30px 0;">
+  <svg viewBox="0 0 220 140" width="100%" height="auto" style="max-width: 60px;" xmlns="http://www.w3.org/2000/svg">
+    <!-- Grupo con transformación para invertir horizontalmente -->
+    <g transform="translate(220, 0) scale(-1, 1)" fill="#9e946a" stroke="#9e946a" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Tallo principal diagonal -->
+      <path d="M 175 115 Q 120 75 55 45" fill="none" stroke-width="1.2" />
+      
+      <!-- Hoja superior izquierda -->
+      <path d="M 105 72 C 90 55, 65 42, 48 45 C 55 60, 80 80, 105 72 Z" />
+      
+      <!-- Hoja inferior -->
+      <path d="M 112 92 C 100 112, 75 122, 58 115 C 72 102, 95 90, 112 92 Z" />
+      
+      <!-- Hoja superior derecha -->
+      <path d="M 122 68 C 128 48, 122 28, 110 24 C 112 44, 118 58, 122 68 Z" />
+      
+      <!-- Hoja inferior derecha -->
+      <path d="M 140 98 C 158 92, 162 75, 150 72 C 138 78, 132 90, 140 98 Z" />
+    </g>
+  </svg>
+</div>
+                
+            </div>
+
+        </div>
+    </div>
+<script>
+        //menu
+ const menuBtn = document.getElementById('menu-btn');
+const navMenu = document.getElementById('nav-menu');
+const menuIcon = document.getElementById('menu-icon');
+const navLinks = document.querySelectorAll('.nav-link');
+
+function openMenu() {
+    navMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+    navMenu.classList.add('opacity-100', 'scale-100', 'pointer-events-auto');
+    menuIcon.classList.remove('fa-bars');
+    menuIcon.classList.add('fa-xmark');
+}
+
+function closeMenu() {
+    navMenu.classList.remove('opacity-100', 'scale-100', 'pointer-events-auto');
+    navMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+    menuIcon.classList.remove('fa-xmark');
+    menuIcon.classList.add('fa-bars');
+}
+
+menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navMenu.classList.contains('opacity-100');
+    isOpen ? closeMenu() : openMenu();
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
+        closeMenu();
+    }
+});
+        //menu
+         //Music
+
+   // Seleccionamos los elementos del HTML
+    const musicBtn = document.getElementById('music-btn');
+    const bgMusic = document.getElementById('bg-music');
+    const musicIcon = document.getElementById('music-icon');
+
+    // Agregamos la acción al hacer clic en el botón
+    musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+            bgMusic.play();
+            // Cambiamos el ícono de FontAwesome a "pausa"
+            musicIcon.classList.remove('fa-music');
+            musicIcon.classList.add('fa-pause');
+        } else {
+            bgMusic.pause();
+            // Volvemos al ícono original
+            musicIcon.classList.remove('fa-pause');
+            musicIcon.classList.add('fa-music');
+        }
+    });
+   //music
+</scrpt>
+</body>
+</html>

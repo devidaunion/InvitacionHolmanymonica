@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Bar & Cócteles</title>
+    
+    <!-- Google Fonts: Cinzel (Headers), Cormorant Garamond (Body), Pinyon Script (Cursive) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta de colores */
+            --color-bg: #fcfaf5;        /* Crema claro */
+            --color-green: #162a20;     /* Verde oscuro */
+            --color-gold: #a69055;      /* Dorado oscuro */
+            --color-gold-light: #b89855;
+            
+            /* Colores de Placeholders */
+            --ph-bg: rgba(184, 152, 85, 0.1);
+            --ph-border: 2px dashed #b89855;
+            
+            /* Tipografías */
+            --font-cinzel: 'Cinzel', serif;
+            --font-cormorant: 'Cormorant Garamond', serif;
+            --font-cursive: 'Pinyon Script', cursive;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #2c2c2c; /* Fondo de pantalla exterior oscuro para resaltar la tarjeta */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            font-family: var(--font-cormorant);
+            color: var(--color-green);
+        }
+
+        /* -------------------------------------------
+           CONTENEDOR PRINCIPAL
+           ------------------------------------------- */
+        .menu-card {
+            position: relative;
+            width: 100%;
+            max-width: 850px;
+            background-color: var(--color-bg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 50px);
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Borde interior delgado */
+        .inner-frame {
+            position: absolute;
+            inset: 15px;
+            border: 1px solid rgba(166, 144, 85, 0.5); /* Borde dorado suave */
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* -------------------------------------------
+           ESTILOS DE PLACEHOLDER GENÉRICOS
+           ------------------------------------------- */
+        .placeholder {
+            background-color: var(--ph-bg);
+            border: var(--ph-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gold);
+            font-family: sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            padding: 5px;
+        }
+
+        /* Esquinas florales (Posición Absoluta) */
+        .floral-corner {
+            position: absolute;
+            width: clamp(100px, 20vw, 160px);
+            height: clamp(120px, 25vw, 180px);
+            z-index: 5;
+        }
+        .floral-tl { top: 0; left: 0; }
+        .floral-tr { top: 0; right: 0; }
+        .floral-bl { bottom: 0; left: 0; }
+        .floral-br { bottom: 0; right: 0; }
+
+        /* -------------------------------------------
+           CABECERA
+           ------------------------------------------- */
+        .header {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 20;
+            position: relative;
+        }
+
+        .icon-monogram {
+            width: clamp(80px, 15vw, 110px);
+            height: clamp(80px, 15vw, 110px);
+            border-radius: 50%; /* Opcional para que parezca un logo */
+            margin-bottom: 20px;
+        }
+
+        .names {
+            font-family: var(--font-cinzel);
+            font-size: clamp(14px, 3vw, 16px);
+            letter-spacing: 0.25em;
+            margin-bottom: 8px;
+            text-indent: 0.25em;
+        }
+
+        .date-loc {
+            font-family: var(--font-cinzel);
+            font-size: clamp(10px, 2vw, 12px);
+            letter-spacing: 0.2em;
+            margin-bottom: 30px;
+            color: var(--color-green);
+        }
+
+        .main-title {
+            font-family: var(--font-cinzel);
+            font-size: clamp(28px, 6vw, 42px);
+            line-height: 1.2;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .icon-divider {
+            width: 120px;
+            height: 25px;
+            margin-bottom: 40px;
+        }
+
+        /* -------------------------------------------
+           SECCIÓN CÓCTELES (Gatos/Perros)
+           ------------------------------------------- */
+        .cocktails-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            width: 100%;
+            margin-bottom: 40px;
+            z-index: 20;
+            position: relative;
+        }
+
+        .cocktail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dog-image {
+            width: clamp(200px, 35vw, 300px);
+            height: clamp(200px, 35vw, 300px);
+            border-radius: 50%; /* Asumiendo formato circular o de corona florar */
+            margin-bottom: 20px;
+        }
+
+        .dog-name-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+
+        .paw-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        .dog-name {
+            font-family: var(--font-cinzel);
+            font-size: clamp(20px, 4vw, 26px);
+            letter-spacing: 0.15em;
+            font-weight: 600;
+        }
+
+        .cocktail-type {
+            font-family: var(--font-cinzel);
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            color: var(--color-gold);
+            margin-bottom: 10px;
+        }
+
+        .cocktail-desc {
+            font-size: 17px;
+            line-height: 1.4;
+            max-width: 280px;
+        }
+
+        /* -------------------------------------------
+           SECCIÓN BEBIDAS
+           ------------------------------------------- */
+        .beverages-section {
+            width: 100%;
+            border-top: 1px solid rgba(166, 144, 85, 0.3);
+            border-bottom: 1px solid rgba(166, 144, 85, 0.3);
+            padding: 30px 0;
+            margin-bottom: 30px;
+            z-index: 20;
+            position: relative;
+        }
+
+        .bev-title {
+            font-family: var(--font-cinzel);
+            font-size: 18px;
+            letter-spacing: 0.2em;
+            margin-bottom: 30px;
+            color: var(--color-gold);
+        }
+
+        .bev-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            align-items: end;
+        }
+
+        .bev-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bev-icon {
+            width: 45px;
+            height: 60px; /* Rectangular para acomodar botellas y vasos */
+        }
+
+        .bev-name {
+            font-family: var(--font-cinzel);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        /* -------------------------------------------
+           PIE DE PÁGINA
+           ------------------------------------------- */
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 20;
+            position: relative;
+        }
+
+        .cursive-text {
+            font-family: var(--font-cursive);
+            font-size: clamp(32px, 6vw, 42px);
+            line-height: 1.2;
+            color: var(--color-green);
+            margin: 20px 0;
+        }
+
+        .heart-icon {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+        }
+
+        .footer-text {
+            font-family: var(--font-cinzel);
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            color: var(--color-gold);
+        }
+
+        /* -------------------------------------------
+           RESPONSIVIDAD (MÓVILES)
+           ------------------------------------------- */
+        @media (max-width: 768px) {
+            .cocktails-grid {
+                grid-template-columns: 1fr; /* Apilar columnas de perros */
+                gap: 50px;
+            }
+
+            .bev-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 columnas x 2 filas en bebidas */
+                gap: 25px 10px;
+            }
+
+            .main-title {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-card">
+        
+        <!-- MARCO INTERIOR -->
+        <div class="inner-frame"></div>
+
+        <!-- PLACEHOLDERS: ESQUINAS FLORALES -->
+        <div class="placeholder floral-corner floral-tl">IMG:<br>Flores Sup. Izq.</div>
+        <div class="placeholder floral-corner floral-tr">IMG:<br>Flores Sup. Der.</div>
+        <div class="placeholder floral-corner floral-bl">IMG:<br>Flores Inf. Izq.</div>
+        <div class="placeholder floral-corner floral-br">IMG:<br>Flores Inf. Der.</div>
+
+        <!-- CABECERA -->
+        <div class="header">
+            <div class="placeholder icon-monogram">IMG:<br>Monograma HM</div>
+            <div class="names">HOLMAN & MÓNICA</div>
+            <div class="date-loc">16 . 01 . 2027 &bull; CASA DUQUE</div>
+            
+            <h1 class="main-title">MENÚ DE BAR<br>& CÓCTELES</h1>
+            
+            <div class="placeholder icon-divider">IMG: Divisor Floral</div>
+        </div>
+
+        <!-- SECCIÓN CÓCTELES (PERROS) -->
+        <div class="cocktails-grid">
+            
+            <!-- Perro 1: Bruce -->
+            <div class="cocktail-item">
+                <div class="placeholder dog-image">IMG:<br>Bruce (Pastor) + Trago</div>
+                <div class="dog-name-wrapper">
+                    <div class="placeholder paw-icon">🐾</div>
+                    <div class="dog-name">BRUCE</div>
+                </div>
+                <div class="cocktail-type">PISCO SOUR</div>
+                <p class="cocktail-desc">Pisco, jugo de limón, jarabe de goma,<br>clara de huevo y bitters.</p>
+            </div>
+
+            <!-- Perro 2: Maki -->
+            <div class="cocktail-item">
+                <div class="placeholder dog-image">IMG:<br>Maki (Blanco) + Trago</div>
+                <div class="dog-name-wrapper">
+                    <div class="placeholder paw-icon">🐾</div>
+                    <div class="dog-name">MAKI</div>
+                </div>
+                <div class="cocktail-type">GIN & TONIC</div>
+                <p class="cocktail-desc">Gin premium, tónica, limón<br>y romero fresco.</p>
+            </div>
+
+        </div>
+
+        <!-- SECCIÓN BEBIDAS -->
+        <div class="beverages-section">
+            <div class="bev-title">&bull; BEBIDAS &bull;</div>
+            <div class="bev-grid">
+                
+                <div class="bev-item">
+                    <div class="placeholder bev-icon">IMG:<br>Botella</div>
+                    <div class="bev-name">AGUARDIENTE</div>
+                </div>
+                <div class="bev-item">
+                    <div class="placeholder bev-icon">IMG:<br>Vaso</div>
+                    <div class="bev-name">WHISKY</div>
+                </div>
+                <div class="bev-item">
+                    <div class="placeholder bev-icon">IMG:<br>Cerveza</div>
+                    <div class="bev-name">CERVEZA</div>
+                </div>
+                <div class="bev-item">
+                    <div class="placeholder bev-icon">IMG:<br>Lata</div>
+                    <div class="bev-name">SODAS</div>
+                </div>
+                <div class="bev-item">
+                    <div class="placeholder bev-icon">IMG:<br>Botella<br>Agua</div>
+                    <div class="bev-name">AGUA</div>
+                </div>
+                <div class="bev-item">
+                    <div class="placeholder bev-icon">IMG:<br>Taza</div>
+                    <div class="bev-name">CAFÉ 4-ALMAS</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PIE DE PÁGINA -->
+        <div class="footer">
+            <div class="placeholder icon-divider">IMG: Divisor Floral</div>
+            <div class="cursive-text">Gracias por ser parte de este día<br>tan especial para nosotros.</div>
+            <div class="placeholder heart-icon">❤</div>
+            <div class="footer-text">&bull; EL HOGAR QUE CONSTRUIMOS &bull;</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
